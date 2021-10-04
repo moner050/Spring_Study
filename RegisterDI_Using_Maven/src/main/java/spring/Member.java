@@ -1,5 +1,7 @@
 package spring;
 
+import exception.WrongPasswordException;
+
 import java.time.LocalDateTime;
 
 public class Member {
@@ -59,5 +61,14 @@ public class Member {
 
     public void setRegisterDateTime(LocalDateTime registerDateTime) {
         this.registerDateTime = registerDateTime;
+    }
+
+    public void changePassword(String oldPassword, String newPassword)
+    {
+        if(!password.equals(oldPassword))
+        {
+            throw new WrongPasswordException();
+        }
+        this.password = newPassword;
     }
 }

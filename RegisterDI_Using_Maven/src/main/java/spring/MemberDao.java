@@ -8,6 +8,8 @@ import java.util.Map;
 public class MemberDao {
     private static long nextId = 0;
 
+    // Map으로 인터페이스 선언 후 HashMap으로 객체 생성.
+    // HashMap은 본인 메소드 외에 부모인 Map의 메소드를 강제로 상속받음.
     private Map<String, Member> mapBaseEmail = new HashMap<String, Member>();
 
     // 회원조회(단건)
@@ -24,11 +26,11 @@ public class MemberDao {
     }
 
     // 회원 수정(단건)
-
     public void update(Member member)
     {
         mapBaseEmail.put(member.getEmail(), member);
     }
+
     public Collection<Member> selectAll()
     {
         return mapBaseEmail.values();
