@@ -1,6 +1,7 @@
 package execution;
 
 import assembler.Assembler;
+import exception.DuplicateMemberDaoException;
 import spring.MemberRegisterService;
 import spring.RegisterRequest;
 
@@ -36,7 +37,7 @@ public class Main {
 
                 if (command.equalsIgnoreCase("new"))
                 {
-
+                    processNewCommand(command.split(" "));
                 }
 
 
@@ -71,9 +72,23 @@ public class Main {
         req.setName(arg[2]);
         req.setPassword(arg[3]);
         req.setConfirmPassword(arg[4]);
-        
-        // 입력한 암호 값이 올바른지 확인
 
+        // 입력한 암호 값이 올바른지 확인
+        if(!req.isPasswordEqualToConfirmPassword())
+        {
+            System.out.println("암호와 일치하지 않습니다.");
+            return;
+        }
+
+        try
+        {
+            regSvc.register(req);
+            System.out.println("등록했습니다\n");
+        }
+        catch (DuplicateMemberDaoException e)
+        {
+            System.out.println("이미 존재하는 이메일입니다.\n");
+        }
     }
 
 
