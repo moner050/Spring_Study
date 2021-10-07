@@ -20,7 +20,7 @@ public class MemberDao {
 
     // 회원 등록 목적
     public void insert(Member member)
-    {
+    {   // 회원번호
         member.setId(++nextId);
         mapBaseEmail.put(member.getEmail(), member);
     }

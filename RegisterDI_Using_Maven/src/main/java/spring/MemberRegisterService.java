@@ -20,6 +20,7 @@ public class MemberRegisterService {
 
     public void register(RegisterRequest req)
     {
+        // 회원 등록 전 체크 로직
         Member member = memberDao.selectByEmail(req.getEmail());
         if(member != null)
         {

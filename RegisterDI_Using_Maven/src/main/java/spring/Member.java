@@ -1,6 +1,6 @@
 package spring;
 
-import exception.WrongPasswordException;
+import exception.WrongIdPasswordException;
 
 import java.time.LocalDateTime;
 
@@ -67,7 +67,7 @@ public class Member {
     {
         if(!password.equals(oldPassword))
         {
-            throw new WrongPasswordException();
+            throw new WrongIdPasswordException();
         }
         this.password = newPassword;
     }
