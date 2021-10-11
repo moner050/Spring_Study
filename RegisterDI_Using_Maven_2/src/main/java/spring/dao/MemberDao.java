@@ -4,6 +4,7 @@ package spring.dao;
 import org.springframework.stereotype.Repository;
 import spring.model.entity.Member;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,5 +35,11 @@ public class MemberDao {
     public void update(Member member)
     {
         mapBaseEmail.put(member.getEmail(), member);
+    }
+
+    // 회원 전체 정보 가져오기.
+    public Collection<Member> selectAll()
+    {
+        return mapBaseEmail.values();
     }
 }

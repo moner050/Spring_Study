@@ -1,8 +1,13 @@
 import config.AppCtx;
 import exception.DuplicationMemberDaoException;
+import exception.MemberNotFoundException;
+import exception.WrongIdPasswordException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.model.dto.request.RegisterRequest;
+import spring.service.ChangePasswordService;
+import spring.service.MemberInfoPrinterService;
+import spring.service.MemberListPrinterService;
 import spring.service.MemberRegisterService;
 
 import java.io.BufferedReader;
@@ -37,6 +42,25 @@ public class MainSpringDI {
                     processNewCommand(command.split(" "));
                 }
 
+                // 입력한 문자열이 "change"로 시작하면 회원가입
+                // 사용 예) change test@naver.com 현재비번 바꿀비번
+                if (command.startsWith("change"))
+                {
+                    processChangeCommand(command.split(" "));
+                }
+                
+                // 입력된 문자열이 "list" 이면 회원 목록 출력
+                if (command.equals("list"))
+                {
+                    processListCommand();
+                }
+                    
+                // 입력된 문자열이 "info"로 시작되면 해당 회원 정보 출력.
+                // 사용 예) info 이메일
+                if (command.startsWith("info"))
+                {
+                    processInfoCommand(command.split(" "));
+                }
             }
             catch(Exception e)
             {
@@ -46,6 +70,7 @@ public class MainSpringDI {
     }
 
     // 회원 정보 가입 메소드
+    // 사용 예) new 이메일 이름 비밀번호 비밀번호확인
     private static void processNewCommand(String[] arg)
     {
         if (arg.length != 5)
@@ -79,8 +104,66 @@ public class MainSpringDI {
         {
             System.out.println("이미 존재하는 이메일입니다.");
         }
+    }
 
+    // 비밀번호 변경 메소드
+    // 사용 예) change 이메일 현재비밀번호 바꿀비밀번호
+    private static void processChangeCommand(String[] arg)
+    {
+        if(arg.length != 4)
+        {
+            printHelp();
+            return;
+        }
 
+        ChangePasswordService changePwSvc = ctx.getBean(ChangePasswordService.class);
+
+        try
+        {
+            changePwSvc.changePassword(arg[1], arg[2], arg[3]);
+            System.out.println("암호를 변경했습니다.\n");
+        }
+        catch(MemberNotFoundException e)
+        {
+            System.out.println("존재하지 않는 이메일입니다.\n");
+        }
+        catch(WrongIdPasswordException e)
+        {
+            System.out.println("이메일과 암호가 일치하지 않습니다.\n");
+        }
+
+    }
+
+    // 회원 정보 출력(단건) 메소드
+    // 사용 예) info 이메일
+    public static void processInfoCommand(String[] arg)
+    {
+        if(arg.length != 2)
+        {
+            printHelp();
+            return;
+        }
+
+        MemberInfoPrinterService memberInfoPrinterService = ctx.getBean(MemberInfoPrinterService.class);
+
+        try
+        {
+            memberInfoPrinterService.printMemberInfo(arg[1]);
+            System.out.println();
+        }
+        catch (MemberNotFoundException e)
+        {
+            System.out.println("존재하지 않는 이메일입니다.\n");
+        }
+
+    }
+
+    // 회원 리스트 출력 메소드
+    // 사용 예) list
+    public static void processListCommand()
+    {
+        MemberListPrinterService listPrinter = ctx.getBean(MemberListPrinterService.class);
+        listPrinter.printAll();
     }
 
     // 커맨드 사용법 메소드
