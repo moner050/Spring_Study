@@ -1,0 +1,9 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/jpa_test?serverTimezone=Asia/Seoul&useSSL=false&characterEncodin=utf-8
+    username: root
+    password: 1234qwer!
+    driver-class-name: com.mysql.cj.jdbc.Driver
