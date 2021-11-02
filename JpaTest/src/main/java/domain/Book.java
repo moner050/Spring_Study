@@ -2,6 +2,7 @@ package domain;
 
 
 import domain.converter.BookStatusConverter;
+import domain.dto.BookStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,6 +38,7 @@ public class Book extends BaseEntity{
     private BookReview bookReview;
 
     @Convert(converter = BookStatusConverter.class)
+    private BookStatus status;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @ToString.Exclude

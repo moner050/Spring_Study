@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class BaseEntity implements Auditable {
     @CreatedDate
     @Column(columnDefinition = "datetime default now() comment '생성시간'", nullable = false, updatable = false)
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(columnDefinition = "datetime default now() comment '수정시간'", nullable = false)

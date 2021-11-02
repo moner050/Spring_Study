@@ -31,9 +31,25 @@ public class BookService {
     @Transactional(propagation = Propagation.REQUIRED)
     public void putBookAuthor()
     {
+        // book 데이터 생성
         Book book = new Book();
         book.setName("자바 jpa 공부");
         BookStatus bookStatus = new BookStatus(200);
-        book.setStatus
+        book.setStatus(bookStatus);
+        bookRepository.save(book);
+
+        // author 데이터 생성
+        try
+        {
+            authorService.putAuthor();
+        }
+        catch(RuntimeException e)
+        {
+            log.error("author 데이터 생성 에러 : " + e);
+        }
     }
+
+
+
+
 }
