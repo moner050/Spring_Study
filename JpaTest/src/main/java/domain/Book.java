@@ -1,6 +1,7 @@
 package domain;
 
 
+import domain.converter.BookStatusConverter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,4 +32,26 @@ public class Book extends BaseEntity{
     @JoinColumn(name = "book_id")
     @ToString.Exclude
     private List<Review> reviewList = new ArrayList<>();
+
+    @OneToOne(mappedBy = "book")
+    private BookReview bookReview;
+
+    @Convert(converter = BookStatusConverter.class)
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @ToString.Exclude
+    private Publisher publisher;
+
+    @Override
+    public String toString()
+    {
+        return "Book{" +
+                "id=" + id +
+                ", name=" + name + '\'' +
+                ", category=" + category + '\'' +
+                ", authorId=" + authorId +
+                ", deleted=" + deleted +
+                ", status=" + status +
+                "}";
+    }
 }

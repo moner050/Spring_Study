@@ -1,15 +1,10 @@
 package domain;
 
 
-import lombok.Generated;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -22,4 +17,28 @@ public class Review extends BaseEntity{
     private String title;
     private String content;
     private float score;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private Book book;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "review_id")
+    private List<Comment> comments;
+
+    @Override
+    public String toString()
+    {
+        return "review{" +
+                "id=" + id +
+                ", title=" + title + '\'' +
+                ", content=" + content + '\'' +
+                ", score=" + score +
+                "}";
+    }
+
 }
