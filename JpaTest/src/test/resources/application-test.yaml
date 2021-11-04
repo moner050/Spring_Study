@@ -1,0 +1,21 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/jpa_test?serverTimezone=Asia/Seoul&useSSL=false&characterEncodin=utf-8
+    username: root
+    password: 1234qwer!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # 없으면 만들고 있으면 그대로 사용
+    #      ddl-auto: create-drop
+    show-sql: true # mysql debug mode, 실제 쿼리가 로그로 보임
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate: # custom options
+        format_sql: true # sql 로그를 포매팅해서 보여줌
+
+server:
+  port: 8050
