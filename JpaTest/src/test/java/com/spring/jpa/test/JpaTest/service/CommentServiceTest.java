@@ -3,8 +3,7 @@ package com.spring.jpa.test.JpaTest.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import repository.CommentRepository;
-import service.CommentService;
+import com.spring.jpa.test.JpaTest.repository.CommentRepository;
 
 @SpringBootTest
 public class CommentServiceTest {

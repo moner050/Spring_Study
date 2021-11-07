@@ -1,12 +1,10 @@
 package com.spring.jpa.test.JpaTest.repository;
 
 
-import domain.Comment;
+import com.spring.jpa.test.JpaTest.domain.Comment;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import repository.CommentRepository;
-import repository.ReviewRepository;
 
 import javax.persistence.EntityManager;
 

@@ -1,9 +1,9 @@
 package com.spring.jpa.test.JpaTest.repository;
 
-import domain.Address;
-import domain.Review;
-import domain.User;
-import domain.UserHistory;
+import com.spring.jpa.test.JpaTest.domain.Address;
+import com.spring.jpa.test.JpaTest.domain.Review;
+import com.spring.jpa.test.JpaTest.domain.User;
+import com.spring.jpa.test.JpaTest.domain.UserHistory;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -11,8 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import repository.UserHistoryRepository;
-import repository.UserRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
