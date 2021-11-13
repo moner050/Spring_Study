@@ -6,6 +6,7 @@ import com.spring.jpa.test.JpaTest.domain.dto.BookStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import com.spring.jpa.test.JpaTest.repository.AuthorRepository;
@@ -50,6 +51,27 @@ public class BookService {
     }
 
 
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public void get(Long id)
+    {
+        System.out.println(">>> findById1 : " + bookRepository.findById(id));
+        System.out.println(">>> findAll2 : " + bookRepository.findAll());
+
+        entityManager.clear();
+
+        System.out.println(">>> findById2 : " + bookRepository.findById(id));
+        System.out.println(">>> findAll2 : " + bookRepository.findAll());
+
+        bookRepository.update();
+
+        System.out.println(">>> findById3 : " + bookRepository.findById(id));
+
+        entityManager.clear();
+
+        Book book = bookRepository.findById(id).get();
+        book.setName("테스트이름");
+        bookRepository.save(book);
+    }
 
 
 }
