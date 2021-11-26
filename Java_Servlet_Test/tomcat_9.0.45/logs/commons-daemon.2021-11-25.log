@@ -1,0 +1,9 @@
+[2021-11-25 17:16:42] [info]  [ 7688] Apache Commons Daemon procrun (1.2.4.0 64-bit) started.
+[2021-11-25 17:16:43] [info]  [ 7688] Running Service 'Tomcat9'...
+[2021-11-25 17:16:44] [info]  [10912] Starting service...
+[2021-11-25 17:16:47] [info]  [10912] Service started in 1657 milliseconds.
+[2021-11-26 01:06:15] [info]  [16376] Console SHUTDOWN event signaled.
+[2021-11-26 01:06:15] [info]  [16376] Stopping service...
+[2021-11-26 01:06:16] [info]  [16376] Service stop thread completed.
+[2021-11-26 01:06:17] [info]  [ 7688] Run service finished.
+[2021-11-26 01:06:17] [info]  [ 7688] Apache Commons Daemon procrun finished.

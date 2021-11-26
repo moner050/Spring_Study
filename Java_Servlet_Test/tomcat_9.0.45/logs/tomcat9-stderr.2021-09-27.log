@@ -1,0 +1,114 @@
+
+2021-09-27 09:35:04 Apache Commons Daemon procrun stderr initialized.
+27-Sep-2021 09:35:06.308 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.45
+27-Sep-2021 09:35:06.335 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Mar 30 2021 10:29:04 UTC
+27-Sep-2021 09:35:06.335 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.45.0
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Windows 10
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     10.0
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          amd64
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           C:\Program Files\Java\jre1.8.0_261
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          1.8.0_261-b12
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 09:35:06.336 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 09:35:06.414 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 09:35:06.414 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 09:35:06.414 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=D:\Programing\Web_Develop\tomcat_9.0.45\temp
+27-Sep-2021 09:35:06.414 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+27-Sep-2021 09:35:06.414 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=D:\Programing\Web_Develop\tomcat_9.0.45\conf\logging.properties
+27-Sep-2021 09:35:06.415 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dfile.encoding=UTF-8
+27-Sep-2021 09:35:06.415 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  exit
+27-Sep-2021 09:35:06.415 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  abort
+27-Sep-2021 09:35:06.415 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Xms128m
+27-Sep-2021 09:35:06.415 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Xmx256m
+27-Sep-2021 09:35:06.446 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR 버전 [1.7.0]을(를) 사용한, APR 기반 Apache Tomcat Native 라이브러리 [1.2.27]을(를) 로드했습니다.
+27-Sep-2021 09:35:06.446 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR 용량정보들: IPv6 [true], sendfile [true], accept filters [false], random [true].
+27-Sep-2021 09:35:06.446 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL 설정: useAprConnector [false], useOpenSSL [true]
+27-Sep-2021 09:35:06.503 정보 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL이 성공적으로 초기화되었습니다: [OpenSSL 1.1.1k  25 Mar 2021]
+27-Sep-2021 09:35:07.039 정보 [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8081"]을(를) 초기화합니다.
+27-Sep-2021 09:35:07.203 정보 [main] org.apache.catalina.startup.Catalina.load [1204] 밀리초 내에 서버가 초기화되었습니다.
+27-Sep-2021 09:35:07.238 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+27-Sep-2021 09:35:07.238 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.45]
+27-Sep-2021 09:35:07.262 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\docs]을(를) 배치합니다.
+27-Sep-2021 09:35:07.479 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 09:35:07.480 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/docs]의 시작이 실패했습니다.
+27-Sep-2021 09:35:07.492 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\docs]에 대한 배치가 [228] 밀리초에 완료되었습니다.
+27-Sep-2021 09:35:07.492 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\examples]을(를) 배치합니다.
+27-Sep-2021 09:35:08.463 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 09:35:08.463 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/examples]의 시작이 실패했습니다.
+27-Sep-2021 09:35:08.467 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\examples]에 대한 배치가 [974] 밀리초에 완료되었습니다.
+27-Sep-2021 09:35:08.480 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\host-manager]을(를) 배치합니다.
+27-Sep-2021 09:35:08.522 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 09:35:08.522 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/host-manager]의 시작이 실패했습니다.
+27-Sep-2021 09:35:08.524 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\host-manager]에 대한 배치가 [45] 밀리초에 완료되었습니다.
+27-Sep-2021 09:35:08.524 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\manager]을(를) 배치합니다.
+27-Sep-2021 09:35:08.580 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 09:35:08.580 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/manager]의 시작이 실패했습니다.
+27-Sep-2021 09:35:08.582 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\manager]에 대한 배치가 [58] 밀리초에 완료되었습니다.
+27-Sep-2021 09:35:08.582 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\ROOT]을(를) 배치합니다.
+27-Sep-2021 09:35:08.621 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 09:35:08.621 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 []의 시작이 실패했습니다.
+27-Sep-2021 09:35:08.622 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\ROOT]에 대한 배치가 [40] 밀리초에 완료되었습니다.
+27-Sep-2021 09:35:08.624 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-8081"]을(를) 시작합니다.
+27-Sep-2021 09:35:08.645 정보 [main] org.apache.catalina.startup.Catalina.start 서버가 [1441] 밀리초 내에 시작되었습니다.
+27-Sep-2021 17:58:32.499 정보 [Thread-5] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8081"]을(를) 일시 정지 중
+27-Sep-2021 17:58:32.646 정보 [Thread-5] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+27-Sep-2021 17:58:32.649 정보 [Thread-5] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8081"]을(를) 중지시킵니다.
+27-Sep-2021 17:58:32.694 정보 [Thread-5] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8081"]을(를) 소멸시킵니다.
+
+2021-09-27 23:37:38 Apache Commons Daemon procrun stderr initialized.
+27-Sep-2021 23:37:39.682 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.45
+27-Sep-2021 23:37:39.688 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Mar 30 2021 10:29:04 UTC
+27-Sep-2021 23:37:39.688 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.45.0
+27-Sep-2021 23:37:39.688 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Windows 10
+27-Sep-2021 23:37:39.688 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     10.0
+27-Sep-2021 23:37:39.688 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          amd64
+27-Sep-2021 23:37:39.689 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           C:\Program Files\Java\jre1.8.0_261
+27-Sep-2021 23:37:39.689 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          1.8.0_261-b12
+27-Sep-2021 23:37:39.689 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+27-Sep-2021 23:37:39.689 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 23:37:39.689 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=D:\Programing\Web_Develop\tomcat_9.0.45
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=D:\Programing\Web_Develop\tomcat_9.0.45\temp
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=D:\Programing\Web_Develop\tomcat_9.0.45\conf\logging.properties
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dfile.encoding=UTF-8
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  exit
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  abort
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Xms128m
+27-Sep-2021 23:37:39.693 정보 [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Xmx256m
+27-Sep-2021 23:37:39.742 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR 버전 [1.7.0]을(를) 사용한, APR 기반 Apache Tomcat Native 라이브러리 [1.2.27]을(를) 로드했습니다.
+27-Sep-2021 23:37:39.742 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR 용량정보들: IPv6 [true], sendfile [true], accept filters [false], random [true].
+27-Sep-2021 23:37:39.742 정보 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL 설정: useAprConnector [false], useOpenSSL [true]
+27-Sep-2021 23:37:39.775 정보 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL이 성공적으로 초기화되었습니다: [OpenSSL 1.1.1k  25 Mar 2021]
+27-Sep-2021 23:37:40.250 정보 [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8081"]을(를) 초기화합니다.
+27-Sep-2021 23:37:40.442 정보 [main] org.apache.catalina.startup.Catalina.load [1031] 밀리초 내에 서버가 초기화되었습니다.
+27-Sep-2021 23:37:40.650 정보 [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+27-Sep-2021 23:37:40.650 정보 [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.45]
+27-Sep-2021 23:37:40.673 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\docs]을(를) 배치합니다.
+27-Sep-2021 23:37:40.996 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 23:37:40.996 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/docs]의 시작이 실패했습니다.
+27-Sep-2021 23:37:41.022 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\docs]에 대한 배치가 [347] 밀리초에 완료되었습니다.
+27-Sep-2021 23:37:41.022 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\examples]을(를) 배치합니다.
+27-Sep-2021 23:37:41.997 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 23:37:41.998 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/examples]의 시작이 실패했습니다.
+27-Sep-2021 23:37:42.001 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\examples]에 대한 배치가 [978] 밀리초에 완료되었습니다.
+27-Sep-2021 23:37:42.015 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\host-manager]을(를) 배치합니다.
+27-Sep-2021 23:37:42.061 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 23:37:42.061 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/host-manager]의 시작이 실패했습니다.
+27-Sep-2021 23:37:42.064 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\host-manager]에 대한 배치가 [49] 밀리초에 완료되었습니다.
+27-Sep-2021 23:37:42.076 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\manager]을(를) 배치합니다.
+27-Sep-2021 23:37:42.149 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 23:37:42.149 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 [/manager]의 시작이 실패했습니다.
+27-Sep-2021 23:37:42.152 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\manager]에 대한 배치가 [76] 밀리초에 완료되었습니다.
+27-Sep-2021 23:37:42.152 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\ROOT]을(를) 배치합니다.
+27-Sep-2021 23:37:42.201 심각 [main] org.apache.catalina.core.StandardContext.startInternal 하나 이상의 필터들이 시작하지 못했습니다. 모든 상세 사항은 적절한 컨테이너 로그 파일에서 찾을 수 있습니다.
+27-Sep-2021 23:37:42.202 심각 [main] org.apache.catalina.core.StandardContext.startInternal 이전 오류들로 인해 컨텍스트 []의 시작이 실패했습니다.
+27-Sep-2021 23:37:42.203 정보 [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [D:\Programing\Web_Develop\tomcat_9.0.45\webapps\ROOT]에 대한 배치가 [51] 밀리초에 완료되었습니다.
+27-Sep-2021 23:37:42.205 정보 [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-8081"]을(를) 시작합니다.
+27-Sep-2021 23:37:42.232 정보 [main] org.apache.catalina.startup.Catalina.start 서버가 [1790] 밀리초 내에 시작되었습니다.
+28-Sep-2021 01:57:27.589 정보 [Thread-5] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8081"]을(를) 일시 정지 중
+28-Sep-2021 01:57:27.736 정보 [Thread-5] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+28-Sep-2021 01:57:27.741 정보 [Thread-5] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8081"]을(를) 중지시킵니다.
+28-Sep-2021 01:57:27.787 정보 [Thread-5] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8081"]을(를) 소멸시킵니다.
