@@ -1,0 +1,16 @@
+필요한 기능  
+1. todo List 목록에 아이템 추가  
+2. todo List 목록 중 특정 아이템 조회  
+3. todo List 전체 목록 조회  
+4. todo List 목록 중 특정 아이템 수정  
+5. todo List 목록 중 특정 아이템 삭제  
+6. todo List 전체 목록 삭제    
+
+	Method		EndPoint		기능		request		response    
+
+1.	POST		/		아이템 추가	O		O  
+2.	GET		/{:id}		특정아이템 조회	X		O  
+3.	GET		/		전체목록 조회	X		O  
+4.	PATCH		/{:id}		아이템 수정	O		O 
+5.	DELETE		/{:id}		특정아이템 삭제	X		200  
+6.	DELETE		/		전체아이템 삭제	X		200   
