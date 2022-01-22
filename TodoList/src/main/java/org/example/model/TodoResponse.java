@@ -16,12 +16,12 @@ public class TodoResponse {
     private String url;
 
     // TodoEntity 를 파라미터로 받는 생성자.
-    public TodoResponse(TodoEntity todoEntity)
+    public TodoResponse(TodoModel todoModel)
     {
-        this.id = todoEntity.getId();
-        this.title = todoEntity.getTitle();
-        this.order = todoEntity.getOrder();
-        this.completed = todoEntity.getCompleted();
+        this.id = todoModel.getId();
+        this.title = todoModel.getTitle();
+        this.order = todoModel.getOrder();
+        this.completed = todoModel.getCompleted();
         this.url = "http://localhost:8080/" + this.id;
     }
 }
