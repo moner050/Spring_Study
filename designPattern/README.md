@@ -22,7 +22,7 @@
 - ## 생성패턴
     - ### 객체를 생성하는 것과 관련된 패턴으로, 객체의 생성과 변경이 전체 시스템에 미치는 영향을 최소화 하고, 코드의 유연성을 높혀 준다.
     - 팩토리 매서드(Factory Method)패턴
-    - 싱글톤(Singleton)패턴
+    - [싱글톤(Singleton)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%EC%83%9D%EC%84%B1%ED%8C%A8%ED%84%B4/SingletonPattern)
     - 프로토타입(Prototype)패턴
     - 빌더(Builder)패턴
     - 업스트랙트 팩토리(Abstract Factory)패턴
@@ -31,13 +31,13 @@
 - ## 구조패턴
     - ### 프로그램 내의 자료구조나 인터페이스 구조 등 프로그램 구조를 설걔하는데 활용 될 수 있는 패턴 클래스, 객체들의 구성을 통해서 더 큰 구조를 만들 수 있게 해준다.
     - ### 큰 규모의 시스템에서는 많은 클래스들이 서로 의존성을 가지게 되는데, 이런 복잡한 구조를 개발 하기 쉽게 만들어 주고 유지 보수하기 쉽게 만들어 준다.
-    - 어댑터(Adapter)패턴
+    - [어댑터(Adapter)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%EA%B5%AC%EC%A1%B0%ED%8C%A8%ED%84%B4/AdapterPattern)
     - 컴포짓(Composite)패턴
     - 브릿지(Bridge)패턴
-    - 데코레이터(Decorator)패턴
-    - 파세이드(Facade)패턴
+    - [데코레이터(Decorator)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%EA%B5%AC%EC%A1%B0%ED%8C%A8%ED%84%B4/DecoratorPattern)
+    - [파사드(Facade)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%EA%B5%AC%EC%A1%B0%ED%8C%A8%ED%84%B4/FacadePattern)
     - 플라이웨이트(FlyWeight)패턴
-    - 프록시(Proxy)패턴
+    - [프록시(Proxy)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%EA%B5%AC%EC%A1%B0%ED%8C%A8%ED%84%B4/ProxyPattern)
 -----------------------------
 - ## 행위 패턴
     - ### 반복적으로 사용되는 객체들의 상호작용을 패턴화한 것으로, 클래스나 객체들이 상호작용하는 방법과 책임을 분산하는 방법을 제공한다.
@@ -45,8 +45,8 @@
     - 템플릿 메소드(Template Method)패턴
     - 인터프리터(Interpreter)패턴
     - 이터레이터(Iterator)패턴
-    - 옵저버(Obsever)패턴
-    - 스트레이지(Strategy)패턴
+    - [옵저버(Obsever)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%ED%96%89%EC%9C%84%ED%8C%A8%ED%84%B4/ObserverPattern)
+    - [전략(Strategy)패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/%ED%96%89%EC%9C%84%ED%8C%A8%ED%84%B4/StrategyPattern)
     - 비지터(Visitor)패턴
     - 체인 오브 리스폰시빌리티(Chain of responsibility)패턴
     - 커맨드(Command)패턴
