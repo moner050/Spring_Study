@@ -8,4 +8,10 @@ SpringBoot 학습 및 객체지향, 디자인패턴 등을 학습하고 정리�
 
 - [POJO JAVA](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/POJO%20JAVA)  
 
+- [디자인 패턴](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4)  
+
+- [WEB이란](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/Web)  
+
+- [REST API](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/REST%20API)  
+
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmoner050%2FSpring_Study&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
