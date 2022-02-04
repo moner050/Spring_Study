@@ -5,17 +5,15 @@ Spring Boot 학습 및 객체지향, 디자인패턴, 웹 개발 이론 등을 �
 ### Build Tool  
 |Name|Version|
 |---|---|
-|Maven|3.3+|
 |**Gradle**|**4.X (4.4 and later) and 5.x**|
 
 ### Servlet Containers  
 |Name|Servlet Version|
 |---|---|
 |**Tomcat 9.x**|**3.3**|
-|Jetty 9.4|3.1|
-|Undertow 2.0|4.0|
-|Netty|-|
 ---------------------------
+- ### [Spring 이란?](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/Spring%EC%9D%B4%EB%9E%80)
+
 - ### [Spring Boot란?](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/Spring%20Boot%EB%9E%80)
 
 - ### [객체지향의 4가지 핵심요소](https://github.com/moner050/Spring_Study/tree/master/%EC%A0%95%EB%A6%AC/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98%204%EA%B0%80%EC%A7%80%20%ED%95%B5%EC%8B%AC%EC%9A%94%EC%86%8C)  
