@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/iocDI.iml" filepath="$PROJECT_DIR$/iocDI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DI.iml" filepath="$PROJECT_DIR$/DI.iml" />
     </modules>
   </component>
 </project>
