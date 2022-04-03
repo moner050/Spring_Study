@@ -2,6 +2,7 @@ package com.example.restaurant.naver;
 
 import com.example.restaurant.naver.dto.SearchImageReq;
 import com.example.restaurant.naver.dto.SearchLocalReq;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,9 @@ public class NaverClientTest {
         search.setQuery("갈비집");
 
         var result =  naverClient.searchLocal(search);
+
+        // 카테고리의 값이 Null 값이면 안된다.
+        Assertions.assertNotNull(result.getItems().stream().findFirst().get().getCategory());
         System.out.println(result);
     }
 
