@@ -21,8 +21,6 @@ public class SearchLocalRes {
 
     private int display;
 
-    private String category;
-
     private List<SearchLocalItem> items;
 
     // items 를 보관하기 위한 클래스 생성
@@ -34,6 +32,7 @@ public class SearchLocalRes {
         private String title;
         private String link;
         private String description;
+        private String category;
         private String telephone;
         private String address;
         private String roadAddress;
