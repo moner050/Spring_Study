@@ -8,6 +8,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -27,4 +29,17 @@ public class Author extends BaseEntity{
     @ToString.Exclude
     private List<BookAuthor> bookAuthorList = new ArrayList<>();
 
+    public void addBookAuthors(BookAuthor... bookAuthors)
+    {
+        Collections.addAll(this.bookAuthorList, bookAuthors);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

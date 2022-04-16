@@ -11,6 +11,7 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -39,6 +40,17 @@ public class Book extends BaseEntity{
 
     @Convert(converter = BookStatusConverter.class)
     private BookStatus status;
+
+    public void addBookAuthors(BookAuthor... bookAuthors)
+    {
+        Collections.addAll(this.bookAuthorList, bookAuthors);
+    }
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "book_id")
+    @ToString.Exclude
+    private List<BookAuthor> bookAuthorList = new ArrayList<>();
+
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @ToString.Exclude

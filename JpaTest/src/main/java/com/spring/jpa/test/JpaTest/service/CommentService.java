@@ -4,8 +4,8 @@ import com.spring.jpa.test.JpaTest.domain.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.spring.jpa.test.JpaTest.repository.CommentRepository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -25,7 +25,7 @@ public class CommentService {
         }
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public void updateSomething()
     {
         List<Comment> comments = commentRepository.findAll();
