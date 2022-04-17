@@ -49,7 +49,7 @@ public class WishListRepositoryTest {
         var saveEntity = wishListRepository.save(expected);
 
         Assertions.assertEquals("update test", saveEntity.getTitle());      // title 의 내용이 update test 이면 정상
-        Assertions.assertEquals(1, wishListRepository.listAll().size());    // listAll 의 사이즈가 1이어야 한다.
+        Assertions.assertEquals(1, wishListRepository.findAll().size());    // listAll 의 사이즈가 1이어야 한다.
     }
 
     @Test
@@ -72,13 +72,13 @@ public class WishListRepositoryTest {
 
         wishListRepository.deleteById(1);                             // 1번을 찾아 지워주고
 
-        int count = wishListRepository.listAll().size();                    // 전체 리스트의 사이즈를 count 에 넣어줌
+        int count = wishListRepository.findAll().size();                    // 전체 리스트의 사이즈를 count 에 넣어줌
 
         Assertions.assertEquals(0, count);                          // 안에 값이 0일때 정상
     }
 
     @Test
-    public void listAllTest()
+    public void findAllTest()
     {
         var wishListEntity1 = create();
         wishListRepository.save(wishListEntity1);
@@ -86,7 +86,7 @@ public class WishListRepositoryTest {
         var wishListEntity2 = create();
         wishListRepository.save(wishListEntity2);
 
-        int count = wishListRepository.listAll().size();                    // 전체 리스트의 사이즈를 count 에 넣어줌
+        int count = wishListRepository.findAll().size();                    // 전체 리스트의 사이즈를 count 에 넣어줌
         Assertions.assertEquals(2, count);                          // count 의 값이 2이면 정상
 
     }
