@@ -57,7 +57,7 @@ abstract public class MemoryDBRepositoryAbstract<T extends MemoryDBEntity> imple
     }
 
     @Override
-    public List<T> listAll() {
+    public List<T> findAll() {
         // db 에 있는 모든 내용을 return
         return db;
     }
