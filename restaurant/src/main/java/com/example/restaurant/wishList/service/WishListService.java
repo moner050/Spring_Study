@@ -103,13 +103,31 @@ public class WishListService {
         return Dto;
     }
 
+    // 위시리스트 목록 전체 불러오기
     public List<WishListDto> findAll() {
-
-
-        return wishListRepository.listAll()
+        return wishListRepository.findAll()
                 .stream()               // listAll 에 stream 을 걸고
                 .map(it -> entityToDto(it)) // map 을 통해서 entity 를 Dto 로 다 바꿔주고
                 .collect(Collectors.toList()); // collect 를 통해서 toList 로 바꿔준다.
-
     }
+
+    // 삭제하기
+    public void delete(int index) {
+        wishListRepository.deleteById(index);
+    }
+
+    //
+    public void addVisit(int index)
+    {
+        var wishItem = wishListRepository.findById(index);
+
+        if(wishItem.isPresent())    // 만약 이 값이 있을때 추가시켜주기
+        {
+            var item = wishItem.get();
+
+            item.setVisit(true);                            // 방문 여부를 true 로 하고
+            item.setVisitCount(item.getVisitCount()+1);     // 방문 카운트 1 늘려주기.
+        }
+    }
+
 }

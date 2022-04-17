@@ -35,4 +35,18 @@ public class ApiController {
     {
         return wishListService.findAll();
     }
+
+    // 위시리스트 삭제하기
+    @DeleteMapping("/{index}")
+    public void delete(@PathVariable int index)
+    {
+        wishListService.delete(index);
+    }
+
+    // 방문여부 추가하기
+    @PostMapping("/{index}")
+    public void addVisit(@PathVariable int index)
+    {
+        wishListService.addVisit(index);
+    }
 }
