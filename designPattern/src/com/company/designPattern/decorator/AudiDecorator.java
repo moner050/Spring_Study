@@ -20,6 +20,6 @@ public class AudiDecorator implements ICar{
 
     @Override
     public void showPrice() {
-        System.out.println(modelName + "의 가격은" + getPrice() + "원 입니다.");
+        System.out.println(modelName + "의 가격은 " + getPrice() + "원 입니다.");
     }
 }
