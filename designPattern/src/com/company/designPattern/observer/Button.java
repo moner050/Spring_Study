@@ -1,4 +1,4 @@
-package com.company.designPattern.obsever;
+package com.company.designPattern.observer;
 
 public class Button {
 
@@ -10,6 +10,7 @@ public class Button {
         this.name = name;
     }
 
+    // 클릭이벤트가 발생하면 리스너에 메세지를 넘겨준다.
     public void click(String message)
     {
         buttonListener.clickEvent(message);
