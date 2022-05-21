@@ -1,24 +1,7 @@
 package com.company.designPattern;
 
 import com.company.designPattern.adapter.*;
-import com.company.designPattern.aop.AopBrowser;
-import com.company.designPattern.decorator.*;
-import com.company.designPattern.facade.Ftp;
-import com.company.designPattern.facade.Reader;
-import com.company.designPattern.facade.SftpClient;
-import com.company.designPattern.facade.Writer;
-import com.company.designPattern.obsever.Button;
-import com.company.designPattern.obsever.IButtonListener;
-import com.company.designPattern.proxy.Browser;
-import com.company.designPattern.proxy.BrowserProxy;
-import com.company.designPattern.proxy.IBrowser;
-import com.company.designPattern.singleton.AClazz;
-import com.company.designPattern.singleton.BClazz;
-import com.company.designPattern.singleton.SocketClient;
 import com.company.designPattern.strategy.*;
-
-import java.net.Socket;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class Main {
 

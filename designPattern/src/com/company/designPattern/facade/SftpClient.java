@@ -7,6 +7,7 @@ public class SftpClient {
     private Reader reader;
     private Writer writer;
 
+    // 생성자에서 다 받아온다.
     public SftpClient(Ftp ftp, Reader reader, Writer writer)
     {
         this.ftp = ftp;
@@ -14,6 +15,7 @@ public class SftpClient {
         this.writer = writer;
     }
 
+    // 오버로딩 시켜준다음 전부 다 받아와준다.
     public SftpClient(String host, int port, String path, String fileName)
     {
         this.ftp = new Ftp(host, port, path);
@@ -21,6 +23,7 @@ public class SftpClient {
         this.writer = new Writer(fileName);
     }
 
+    // 연결
     public void connect()
     {
         ftp.connect();
@@ -29,6 +32,7 @@ public class SftpClient {
         reader.fileConnect();
     }
 
+    // 연결 해제
     public void disConnect()
     {
         writer.fileDisConnect();
@@ -36,11 +40,13 @@ public class SftpClient {
         ftp.disConnect();
     }
 
+    // 파일 읽기
     public void read()
     {
         reader.fileRead();
     }
 
+    // 파일 쓰기
     public void write()
     {
         writer.write();
