@@ -47,7 +47,7 @@ public class WishListService {
                 var imageItem = searchImageRes.getItems().stream().findFirst().get();
 
                 var result = new WishListDto();
-                result.setTitle(localItem.getTitle());
+                result.setTitle(localItem.getTitle().replaceAll("<[^>]*>", ""));
                 result.setCategory(localItem.getCategory());
                 result.setAddress(localItem.getAddress());
                 result.setRoadAddress(localItem.getRoadAddress());
