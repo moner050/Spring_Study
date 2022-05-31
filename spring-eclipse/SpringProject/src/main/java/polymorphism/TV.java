@@ -1,10 +1,10 @@
 package polymorphism;
 
-public abstract class TV {
+public interface TV{
 	
-	public abstract void powerOn();
-	public abstract void powerOff();
-	public abstract void volumeUp();
-	public abstract void volumeDown();
+	public void powerOn();
+	public void powerOff();
+	public void volumeUp();
+	public void volumeDown();
 	
 }
