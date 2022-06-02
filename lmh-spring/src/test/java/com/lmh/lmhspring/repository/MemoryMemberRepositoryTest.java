@@ -4,12 +4,14 @@ import com.lmh.lmhspring.domain.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
+@SpringBootTest
 public class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
@@ -20,6 +22,7 @@ public class MemoryMemberRepositoryTest {
     public void afterEach(){
         repository.clearStore();
     }
+
 
     @Test
     public void save()
@@ -73,5 +76,4 @@ public class MemoryMemberRepositoryTest {
         // 안에 넣은 값의 수가 2인지 확인.
         assertThat(result.size()).isEqualTo(2);
     }
-
 }
