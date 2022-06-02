@@ -8,10 +8,5 @@
 	
 	<!--  IOC 설정에 Annotation을 적용하기 위한 설정 -->
 	<context:component-scan base-package="com.my.biz" />
-		
-<!-- 	<bean id="BoardDAO" class="com.my.biz.board.BoardDAO"></bean> -->
-	
-<!-- 	<bean id="boardService" class="com.my.biz.board.BoardServiceImpl"></bean> -->
-	
 
 </beans>

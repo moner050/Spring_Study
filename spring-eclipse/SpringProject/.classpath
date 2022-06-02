@@ -2,7 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -14,53 +15,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/aspectjrt-1.6.10.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/aspectjweaver-1.8.8.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/byte-buddy-1.11.8.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/classmate-1.5.1.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/commons-dbcp-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/commons-fileupload-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/commons-io-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/commons-pool-1.5.4.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/FastInfoset-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/h2-2.0.202.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/hibernate-commons-annotations-5.1.2.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/hibernate-core-5.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/hibernate-entitymanager-5.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/istack-commons-runtime-3.0.7.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jackson-annotations-2.9.0.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jackson-core-2.9.4.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jackson-databind-2.9.4.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jandex-2.2.3.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/javassist-3.27.0-GA.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/javax.activation-api-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/javax.inject-1.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/javax.persistence-api-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jaxb-api-2.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jaxb-runtime-2.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jboss-logging-3.4.2.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jcl-over-slf4j-1.6.6.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/lombok.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/mybatis-3.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/mybatis-spring-1.2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/slf4j-api-1.6.6.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/slf4j-log4j12-1.6.6.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-aop-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-beans-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-context-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-core-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-expression-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-jcl-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-jdbc-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-orm-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-tx-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-web-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/spring-webmvc-5.3.9.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/stax-ex-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/Programming/Spring_Study/spring-eclipse/SpringProject/src/main/webapp/META-INF/lib/txw2-2.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
