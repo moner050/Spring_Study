@@ -37,5 +37,4 @@
 	<!--  IOC 설정에 Annotation을 적용하기 위한 설정 -->
 	<context:component-scan base-package="polymorphism" />
 
-
 </beans>
