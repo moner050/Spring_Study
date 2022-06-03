@@ -1,6 +1,7 @@
 package com.lmh.lmhspring.repository;
 
 import com.lmh.lmhspring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
