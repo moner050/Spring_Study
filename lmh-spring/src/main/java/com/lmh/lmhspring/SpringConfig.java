@@ -2,9 +2,11 @@ package com.lmh.lmhspring;
 
 import com.lmh.lmhspring.repository.JdbcMemberRepository;
 import com.lmh.lmhspring.repository.JdbcTemplateMemberRepository;
+import com.lmh.lmhspring.repository.JpaMemberRepository;
 import com.lmh.lmhspring.repository.MemberRepository;
 import com.lmh.lmhspring.repository.MemoryMemberRepository;
 import com.lmh.lmhspring.service.MemberService;
+import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +17,18 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+//    private DataSource dataSource;
+
+//    @Autowired
+//    public SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
+
+    private EntityManager em;
 
     @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
 
     @Bean
@@ -35,7 +44,9 @@ public class SpringConfig {
         // 순수 JDBC 객체 반환
 //        return new JdbcMemberRepository(dataSource);
         // 스프링 JdbcTemplate 객체 반환
-        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        // JPA 객체 반환
+        return new JpaMemberRepository(em);
     }
 
 

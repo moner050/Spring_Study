@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
-
+// JPA 를 사용하기 위해서는 Transactional 이 있어야 한다.(데이터 저장, 변경)
+@Transactional
 public class MemberService {
     // 생성자 주입 (가장 권장)
     private final MemberRepository memberRepository;
