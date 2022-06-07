@@ -17,28 +17,42 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
+//    JDBC 객체 반환
 //    private DataSource dataSource;
-
 //    @Autowired
 //    public SpringConfig(DataSource dataSource) {
 //        this.dataSource = dataSource;
 //    }
 
-    private EntityManager em;
+//    JPA 객체 반환
+//    private EntityManager em;
+//    @Autowired
+//    public SpringConfig(EntityManager em) {
+//        this.em = em;
+//    }
+
+//    @Bean
+//    public MemberService memberService(){
+//        return new MemberService(memberRepository());
+//    }
+
+
+    // 스프링 data JPA 를 사용할때 사용.
+    private final MemberRepository memberRepository;
 
     @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository()
-    {
+//    @Bean
+//    public MemberRepository memberRepository()
+//    {
         // 메모리 저장 객체 반환
 //        return new MemoryMemberRepository();
         // 순수 JDBC 객체 반환
@@ -46,8 +60,8 @@ public class SpringConfig {
         // 스프링 JdbcTemplate 객체 반환
 //        return new JdbcTemplateMemberRepository(dataSource);
         // JPA 객체 반환
-        return new JpaMemberRepository(em);
-    }
+//        return new JpaMemberRepository(em);
+//    }
 
 
 }
