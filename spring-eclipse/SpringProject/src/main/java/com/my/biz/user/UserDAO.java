@@ -13,7 +13,7 @@ import com.my.biz.common.JDBCUtil;
 
 // Data Access Object 클래스 
 @Repository
-public class UserDAO implements UserService {
+public class UserDAO{
 	// JDBC 관련 변수 
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
@@ -26,7 +26,6 @@ public class UserDAO implements UserService {
 
 	// USER 테이블 관련 CRUD 메소드
 	// 회원 가입
-	@Override
 	public void insertUser(UserVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -44,7 +43,6 @@ public class UserDAO implements UserService {
 	}
 	
 	// 회원 상세 조회
-	@Override
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 		try {
@@ -68,7 +66,6 @@ public class UserDAO implements UserService {
 	}
 	
 	// 회원 목록 조회
-	@Override
 	public List<UserVO> getUserList() {
 		List<UserVO> userList = new ArrayList<UserVO>();
 		try {

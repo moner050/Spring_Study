@@ -3,15 +3,46 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<!--  IOC 설정에 Annotation을 적용하기 위한 설정 -->
 	<context:component-scan base-package="com.my.biz" />
+	
+	<!--  AOP에 Annotation을 적용하기 위한 설정 -->
+	<aop:aspectj-autoproxy/>
+	
+	<!-- 횡단관심에 해당하는 Advice 클래스 등록 
+	<bean id="log" 				class="com.my.biz.common.LogAdvice"></bean>
+	<bean id="afterReturning" 	class="com.my.biz.common.AfterReturningAdvice"></bean>
+	<bean id="afterThrowing" 	class="com.my.biz.common.AfterThrowingAdvice"></bean>
+	<bean id="around"           class="com.my.biz.common.AroundAdvice" ></bean> -->
+	
+	
+	<!-- AOP 설정
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.my.biz..*Impl.*(..))"/>
+		<aop:pointcut id="getPointcut" expression="execution(* com.my.biz..*Impl.get*(..))" />
 		
-<!-- 	<bean id="BoardDAO" class="com.my.biz.board.BoardDAO"></bean> -->
+		<aop:aspect ref="log">
+			<aop:before pointcut-ref="allPointcut" method="printLog"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/>
+		</aop:aspect>
 	
-<!-- 	<bean id="boardService" class="com.my.biz.board.BoardServiceImpl"></bean> -->
+		<aop:aspect ref="afterThrowing">
+			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exceptObj"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="around">
+			<aop:around pointcut-ref="allPointcut" method="AroundLog"/>
+		</aop:aspect>
 	
-
+	</aop:config>
+	-->
+	
 </beans>

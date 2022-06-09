@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService{
 
 
 	public UserVO getUser(UserVO vo) {
+		System.out.println("getUser() 처리단계");
 		return userDAO.getUser(vo);
 	}
 

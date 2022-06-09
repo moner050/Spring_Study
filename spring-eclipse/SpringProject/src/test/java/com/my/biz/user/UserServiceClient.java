@@ -10,7 +10,7 @@ public class UserServiceClient {
 	public static void main(String[] args) {
 
 		// 1. 스프링 컨테이너 생성
-		GenericXmlApplicationContext container = new GenericXmlApplicationContext("user-layer.xml");
+		GenericXmlApplicationContext container = new GenericXmlApplicationContext("business-layer.xml");
 		
 		// 2. 테스트 객체 Lookup
 		UserService userService = (UserService) container.getBean("userService");

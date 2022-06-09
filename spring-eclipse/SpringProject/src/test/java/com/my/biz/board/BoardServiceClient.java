@@ -17,8 +17,11 @@ public class BoardServiceClient {
 		
 		// 3. Lookup 한 객체의 메소드 테스트
 		BoardVO vo = new BoardVO();
+		vo.setSeq(7);
 		vo.setSearchCondition("TITLE");
 		vo.setSearchKeyword("");
+		boardService.insertBoard(vo);
+		
 		List<BoardVO> boardList = boardService.getBoardList(vo);
 		
 		for(BoardVO board : boardList)

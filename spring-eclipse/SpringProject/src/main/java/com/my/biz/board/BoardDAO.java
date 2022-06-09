@@ -13,7 +13,7 @@ import com.my.biz.common.JDBCUtil;
 
 // 2. DAO(Data Access Object) 클래스
 @Repository
-public class BoardDAO implements BoardService {
+public class BoardDAO{
 	// JDBC 관련 변수
 	private Connection conn;
 	private PreparedStatement stmt;   
@@ -34,7 +34,6 @@ public class BoardDAO implements BoardService {
 	
 	// CRUD 기능의 메소드
 	// 글 등록
-	@Override
 	public void insertBoard(BoardVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -51,7 +50,6 @@ public class BoardDAO implements BoardService {
 	}
 	
 	// 글 수정
-	@Override
 	public void updateBoard(BoardVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -68,7 +66,6 @@ public class BoardDAO implements BoardService {
 	}
 	
 	// 글 삭제
-	@Override
 	public void deleteBoard(BoardVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -83,7 +80,6 @@ public class BoardDAO implements BoardService {
 	}
 	
 	// 글 상세 조회
-	@Override
 	public BoardVO getBoard(BoardVO vo) {
 		BoardVO board = null;
 		try {
@@ -109,7 +105,6 @@ public class BoardDAO implements BoardService {
 	}
 	
 	// 글 목록 검색
-	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
 		try {
