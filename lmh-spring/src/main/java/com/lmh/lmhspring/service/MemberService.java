@@ -34,9 +34,7 @@ public class MemberService {
 
     // 회원가입
     public Long join(Member member){
-        // 같은 이름이 있는 중복 회원 불가능 (중복회원 검증)
         validateDuplicateMember(member);
-
         // 회원가입 되면 아이디만 반환
         memberRepository.save(member);
         return member.getId();

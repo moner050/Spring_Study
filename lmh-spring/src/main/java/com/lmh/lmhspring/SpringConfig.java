@@ -1,11 +1,13 @@
 package com.lmh.lmhspring;
 
+import com.lmh.lmhspring.aop.TimeTraceAop;
 import com.lmh.lmhspring.repository.JdbcMemberRepository;
 import com.lmh.lmhspring.repository.JdbcTemplateMemberRepository;
 import com.lmh.lmhspring.repository.JpaMemberRepository;
 import com.lmh.lmhspring.repository.MemberRepository;
 import com.lmh.lmhspring.repository.MemoryMemberRepository;
 import com.lmh.lmhspring.service.MemberService;
+import java.sql.Time;
 import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -49,6 +51,7 @@ public class SpringConfig {
     public MemberService memberService(){
         return new MemberService(memberRepository);
     }
+
 
 //    @Bean
 //    public MemberRepository memberRepository()
