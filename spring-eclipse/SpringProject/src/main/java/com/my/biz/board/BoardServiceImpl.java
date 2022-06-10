@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired // Type Injection
-	private BoardDAO boardDAO;
+	private BoardDAOSpring boardDAO;
 	
 	public BoardServiceImpl() {
 		System.out.println("===> BoardServiceImpl 생성");
