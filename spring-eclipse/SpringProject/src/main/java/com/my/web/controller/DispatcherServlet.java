@@ -17,7 +17,7 @@ import com.my.biz.user.UserDAO;
 import com.my.biz.user.UserDAOJDBC;
 import com.my.biz.user.UserVO;
 
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -27,8 +27,12 @@ public class DispatcherServlet extends HttpServlet{
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
 		// 사용자 요청 path 정보를 추출한다. 
 		String uri = request.getRequestURI();
+		
 		String path = uri.substring(uri.lastIndexOf("/"));
 		System.out.println("요청 path : " + path);
 		
@@ -165,6 +169,7 @@ public class DispatcherServlet extends HttpServlet{
 			
 			BoardDAO boardDAO = new BoardDAOJDBC();
 			BoardVO board = boardDAO.getBoard(vo);
+			
 			
 			// 3. 화면 이동
 			// 검색 결과를 request에 등록하고 getBoardList.jsp로 이동(forwarding)한다. 

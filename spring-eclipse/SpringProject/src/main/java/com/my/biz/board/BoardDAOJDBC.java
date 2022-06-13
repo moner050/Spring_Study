@@ -20,13 +20,14 @@ public class BoardDAOJDBC implements BoardDAO{
 	private ResultSet rs;
 	
 	// SQL 명령어
-	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) "
-			                          + "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
-	private final String BOARD_UPDATE = "update board set title = ?, content = ? where seq = ?";
-	private final String BOARD_DELETE = "delete board where seq = ?";
-	private final String BOARD_LIST_T = "select * from board where title   like '%'||?||'%' order by seq desc";
-	private final String BOARD_LIST_C = "select * from board where content like '%'||?||'%' order by seq desc";
-	private final String BOARD_GET    = "select * from board where seq = ?";
+	private final String BOARD_INSERT         = "insert into board(seq, title, writer, content) "
+			                                  + "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
+	private final String BOARD_UPDATE         = "update board set title = ?, content = ? where seq = ?";
+	private final String BOARD_DELETE         = "delete board where seq = ?";
+	private final String BOARD_LIST_T         = "select * from board where title   like '%'||?||'%' order by seq desc";
+	private final String BOARD_LIST_C         = "select * from board where content like '%'||?||'%' order by seq desc";
+	private final String BOARD_GET    		  = "select * from board where seq = ?";
+	private final String BOARD_UPDATE_CNT	  = "update board set cnt = cnt+1 where seq = ?";
 
 	public BoardDAOJDBC() {
 		System.out.println("===> BoardDAO 생성");
@@ -86,19 +87,25 @@ public class BoardDAOJDBC implements BoardDAO{
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
 		BoardVO board = null;
+		// 검색 결과가 있을 경우에만 조회수를 증가
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_GET);
 			stmt.setInt(1, vo.getSeq());
 			rs = stmt.executeQuery();
 			if(rs.next()) {
+				// 검색 결과가 있을 경우에만 조회수를 증가
+				stmt = conn.prepareStatement(BOARD_UPDATE_CNT);
+				stmt.setInt(1, vo.getSeq());
+				stmt.executeUpdate();
+				// 검색 결과가 있을 경우에만 조회수를 증가
 				board = new BoardVO();
 				board.setSeq(rs.getInt("SEQ"));
 				board.setTitle(rs.getString("TITLE"));
 				board.setContent(rs.getString("CONTENT"));
 				board.setWriter(rs.getString("WRITER"));
 				board.setRegDate(rs.getDate("REGDATE"));
-				board.setCnt(rs.getInt("CNT"));
+				board.setCnt(rs.getInt("CNT") + 1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -139,4 +146,5 @@ public class BoardDAOJDBC implements BoardDAO{
 		}
 		return boardList;
 	}
+
 }

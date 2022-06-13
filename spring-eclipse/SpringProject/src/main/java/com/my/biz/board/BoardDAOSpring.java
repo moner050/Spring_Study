@@ -35,6 +35,7 @@ public class BoardDAOSpring implements BoardDAO{
 		spring.update(BOARD_UPDATE, vo.getTitle(), vo.getContent(), vo.getSeq());
 	}
 	
+	
 	// 글 삭제
 	public void deleteBoard(BoardVO vo) {
 		System.out.println("===> Spring 기반으로 deleteBoard() 기능 처리");
@@ -44,6 +45,7 @@ public class BoardDAOSpring implements BoardDAO{
 	// 글 상세 조회
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> Spring 기반으로 getBoard() 기능 처리");
+		
 		return spring.queryForObject(BOARD_GET, new BoardRowMapper(), vo.getSeq());
 	}
 	
@@ -58,4 +60,5 @@ public class BoardDAOSpring implements BoardDAO{
 		}
 		return null;
 	}
+
 }
