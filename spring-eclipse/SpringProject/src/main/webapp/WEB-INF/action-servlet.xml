@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd"
+		>
+
+	<!-- Controller 클래스들을 등록한다 -->
+	<bean id="getBoardList" class="com.my.web.controller.board.GetBoardListController"></bean>
+	<bean id="getBoard" class="com.my.web.controller.board.GetBoardController"></bean>
+	<bean id="deleteBoard" class="com.my.web.controller.board.DeleteBoardController"></bean>
+	<bean id="insertBoard" class="com.my.web.controller.board.InsertBoardController"></bean>
+	<bean id="insertBoardView" class="com.my.web.controller.board.InsertBoardViewController"></bean>
+	<bean id="updateBoard" class="com.my.web.controller.board.UpdateBoardController"></bean>
+	
+	<bean id="loginView" class="com.my.web.controller.user.LoginViewController"></bean>
+	<bean id="login" class="com.my.web.controller.user.LoginController"></bean>
+	<bean id="logout" class="com.my.web.controller.user.LogoutController"></bean>
+	<bean id="insertUserView" class="com.my.web.controller.user.InsertUserViewController"></bean>
+	<bean id="insertUser" class="com.my.web.controller.user.InsertUserController"></bean>
+	
+	
+	<!-- HandlerMapping 클래스를 등록한다 -->
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/getBoardList.do">getBoardList</prop>
+				<prop key="/getBoard.do">getBoard</prop>
+				<prop key="/deleteBoard.do">deleteBoard</prop>
+				<prop key="/insertBoard.do">insertBoard</prop>
+				<prop key="/insertBoardView.do">insertBoardView</prop>
+				<prop key="/updateBoard.do">updateBoard</prop>
+				
+				<prop key="/loginView.do">loginView</prop>
+				<prop key="/login.do">login</prop>
+				<prop key="/logout.do">logout</prop>
+				<prop key="/insertUserView.do">insertUserView</prop>
+				<prop key="/insertUser.do">insertUser</prop>
+				
+			</props>
+		</property>
+	</bean>
+</beans>

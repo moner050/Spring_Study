@@ -38,7 +38,20 @@
 	<context:component-scan base-package="polymorphism" />
 	
 	<!-- 실제로 사용할 Speaker 하나만 등록한다. -->
-	<bean class="polymorphism.AppleSpeaker"></bean>
+<!-- 	<bean class="polymorphism.AppleSpeaker"></bean> -->
 	
-	<bean id="tv" class="polymorphism.LgTV"></bean>
+<!-- 	<bean id="tv" class="polymorphism.LgTV"></bean> -->
+	
+	<bean id="collection" class="polymorphism.CollectionBean">
+		<property name="addressList">
+			<list>
+				<value>성수동</value>
+				<value>신당동</value>
+				<value>신림동</value>
+				<value>난곡동</value>
+				<value>학동</value>
+			</list>
+		</property>
+	</bean>
+	
 </beans>

@@ -21,6 +21,7 @@ public class BoardDAOSpring implements BoardDAO{
 	private final String BOARD_LIST_T = "select * from board where title   like '%'||?||'%' order by seq desc";
 	private final String BOARD_LIST_C = "select * from board where content like '%'||?||'%' order by seq desc";
 	private final String BOARD_GET    = "select * from board where seq = ?";
+	private final String BOARD_UPDATE_CNT	  = "update board set cnt = cnt+1 where seq = ?";
 
 	// CRUD 기능의 메소드
 	// 글 등록
@@ -45,7 +46,7 @@ public class BoardDAOSpring implements BoardDAO{
 	// 글 상세 조회
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> Spring 기반으로 getBoard() 기능 처리");
-		
+		spring.update(BOARD_UPDATE_CNT, vo.getSeq());
 		return spring.queryForObject(BOARD_GET, new BoardRowMapper(), vo.getSeq());
 	}
 	
