@@ -71,7 +71,5 @@ public class BoardController {
 		model.addAttribute("boardList", boardList);				
 		model.addAttribute("searchCount", boardList.size());		
 		return "getBoardList";
-		
 	}
-	
 }

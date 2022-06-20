@@ -3,6 +3,7 @@ package com.my.web.controller.user;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.my.biz.user.UserDAOJDBC;
@@ -26,7 +27,10 @@ public class UserController {
 
 	// 로그인 화면으로 이동
 	@RequestMapping("loginView.do")
-	public String loginView() {
+	// 매개변수로 VO 객체를 받으면 자동으로 Model에 저장된다.
+	public String loginView(@ModelAttribute("user") UserVO vo) {
+		vo.setId("test");
+		vo.setPassword("test");
 		return "login";
 	}
 	
