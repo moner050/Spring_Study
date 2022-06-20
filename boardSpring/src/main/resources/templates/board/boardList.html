@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 목록</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/js/bootstrap.bundle.min.js">
+</head>
+<body>
+
+  <div th:replace="layout/header::header"></div>
+  <div class="board-table">
+    <table class="table table-striped-columns">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>글쓴이</th>
+          <th>글쓴날짜</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="board : ${board}">
+          <td th:text="${board.seq}"></td>
+          <td th:text="${board.title}"></td>
+          <td th:text="${board.writer}"></td>
+          <td th:text="${board.regdate}"></td>
+          <td th:text="${board.cnt}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div th:replace="layout/footer::footer"></div>
+</body>
+</html>
