@@ -3,23 +3,23 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap>
-	
-	<typeAlias alias="board" type="com.my.biz.board.BoardVO"/>
 
+	<typeAlias alias="board" type="com.my.biz.board.BoardVO"/>
+	
 	<resultMap class="board" id="boardResult">
-		<result property="seq" 		column="SEQ"/>
-		<result property="title" 	column="TITLE"/>
-		<result property="writer" 	column="WRITER"/>
-		<result property="content" 	column="CONTENT"/>
-		<result property="regDate" 	column="REGDATE"/>
-		<result property="cnt" 		column="CNT"/>
+		<result property="seq"     column="SEQ"/>
+		<result property="title"   column="TITLE"/>
+		<result property="writer"  column="WRITER"/>
+		<result property="content" column="CONTENT"/>
+		<result property="regDate" column="REGDATE"/>
+		<result property="cnt"     column="CNT"/>
 	</resultMap>
 
 	<insert id="insertBoard">
-		insert into board(seq, title, writer, content)
-		values((select nvl(max(seq), 0) + 1 from board), #title#, #writer#, #content#)
+		insert into board(seq, title, writer, content) 
+		values((select nvl(max(seq), 0) + 1 from board), #title#, #writer#, #content#)		
 	</insert>
-	
+
 	<update id="updateBoard">
 		update board set title = #title#, content = #content# where seq = #seq#
 	</update>
@@ -28,26 +28,27 @@
 		delete board where seq = #seq#
 	</delete>
 	
-	<select id="getBoard">
-	<![CDATA[
-		select * from board where seq <= #seq#
-	]]>
+	<select id="getBoard" resultClass="board">
+		<![CDATA[
+		select * 
+		from board 
+		where seq = #seq#
+		]]>
 	</select>
 	
 	<select id="getBoardList" resultMap="boardResult">
 		select * 
 		from board 
-		where 1 = 1
+		where 1 = 1 
 		<isEqual prepend="and" property="searchCondition" compareValue="TITLE">
-			 title like '%'||#searchKeyword#||'%'
+		title like '%'||#searchKeyword#||'%'
 		</isEqual>
 		<isEqual prepend="and" property="searchCondition" compareValue="CONTENT">
-			 content like '%'||#searchKeyword#||'%'
+		content like '%'||#searchKeyword#||'%'
 		</isEqual>
 		order by seq desc
 	</select>
-	
-	
+
 </sqlMap>
 
 

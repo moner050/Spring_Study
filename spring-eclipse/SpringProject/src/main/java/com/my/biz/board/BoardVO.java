@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import lombok.Data;
 
+// 1. VO(Value Object) 클래스
 @Data
 public class BoardVO {
 	private int seq;

@@ -7,13 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.my.biz.common.JDBCUtil;
 
-// Data Access Object 클래스 
-//@Repository
-public class UserDAOJDBC implements UserDAO{
+// 2. Data Access Object 클래스 
+// @Repository
+public class UserDAOJDBC implements UserDAO {
 	// JDBC 관련 변수 
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
@@ -26,8 +24,8 @@ public class UserDAOJDBC implements UserDAO{
 
 	// USER 테이블 관련 CRUD 메소드
 	// 회원 가입
-	@Override
 	public void insertUser(UserVO vo) {
+		System.out.println("===> JDBC 기반으로 insertUser() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(USER_INSERT);
@@ -44,8 +42,8 @@ public class UserDAOJDBC implements UserDAO{
 	}
 	
 	// 회원 상세 조회
-	@Override
 	public UserVO getUser(UserVO vo) {
+		System.out.println("===> JDBC 기반으로 getUser() 기능 처리");
 		UserVO user = null;
 		try {
 			conn = JDBCUtil.getConnection();
@@ -68,8 +66,8 @@ public class UserDAOJDBC implements UserDAO{
 	}
 	
 	// 회원 목록 조회
-	@Override
 	public List<UserVO> getUserList() {
+		System.out.println("===> JDBC 기반으로 getUserList() 기능 처리");
 		List<UserVO> userList = new ArrayList<UserVO>();
 		try {
 			conn = JDBCUtil.getConnection();

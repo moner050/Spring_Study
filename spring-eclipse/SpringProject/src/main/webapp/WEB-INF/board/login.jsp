@@ -8,12 +8,12 @@
 	
 	<tr>
 		<td bgcolor="orange">아이디</td>
-		<td><input type="text" name="id" size="20" value="${user.id}" } /></td>
+		<td><input type="text" name="id" size="20" value="${user.id }"/></td>
 	</tr>
 	
 	<tr>
 		<td bgcolor="orange">비밀번호</td>
-		<td><input type="password" name="password" size="20" value="${user.password}" /></td>
+		<td><input type="password" name="password" size="20" value="${user.password }"/></td>
 	</tr>
 
 	<tr>

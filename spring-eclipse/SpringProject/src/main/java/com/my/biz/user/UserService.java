@@ -2,6 +2,7 @@ package com.my.biz.user;
 
 import java.util.List;
 
+// 3. Service 인터페이스
 public interface UserService {
 
 	// USER 테이블 관련 CRUD 메소드

@@ -1,19 +1,15 @@
 package polymorphism;
 
-import java.util.List;
+import java.util.Set;
 
 public class CollectionBean {
+	private Set<String> addressList;
 
-	private List<String> addressList;
-
-	public List<String> getAddressList() {
+	public Set<String> getAddressList() {
 		return addressList;
 	}
 
-	public void setAddressList(List<String> addressList) {
+	public void setAddressList(Set<String> addressList) {
 		this.addressList = addressList;
 	}
-
-	
-	
 }

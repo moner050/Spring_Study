@@ -8,99 +8,105 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-
-	<!-- IOC 설정에 Annotation을 적용하기 위한 설정 -->
-	<context:component-scan
-		base-package="com.my.biz" />
-
+	
+	<!-- IoC에 Annotation을 적용하기 위한 설정 -->
+	<context:component-scan base-package="com.my.biz"/>
+	
 	<!-- 실제로 사용할 DAO 하나만 등록한다. -->
-<!--  	<bean class="com.my.biz.board.BoardDAOSpring" /> -->
-	<bean class="com.my.biz.board.BoardDAOIBATIS" />
-	<bean class="com.my.biz.user.UserDAOSpring" />
+	<bean class="com.my.biz.board.BoardDAOMyBatis"/>
+	<bean class="com.my.biz.user.UserDAOMyBatis"/>
 
 	<!-- AOP에 Annotation을 적용하기 위한 설정 -->
-	<aop:aspectj-autoproxy />
-
+	<aop:aspectj-autoproxy/>
+	
 	<!-- DataSource 등록 -->
-	<context:property-placeholder
-		location="classpath:datasource.properties" />
-	<bean id="dataSource"
-		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driverClassName}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+	<context:property-placeholder location="classpath:datasource.properties"/>
+	<bean id="dataSource" 
+	      class="org.apache.commons.dbcp.BasicDataSource"
+	      destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url"             value="${jdbc.url}"/>
+		<property name="username"        value="${jdbc.username}"/>
+		<property name="password"        value="${jdbc.password}"/>
 	</bean>
 	
 	<!-- Spring과 iBATIS 연동 설정 -->
 	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="classPath:sql-map-config(ibatis)"></property>
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:sql-map-config(ibatis).xml"/>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	<bean class="org.springframework.orm.ibatis.SqlMapClientTemplate">
-		<property name="sqlMapClient" ref="sqlMapClient"></property>
+		<property name="sqlMapClient" ref="sqlMapClient"/>
 	</bean>
 	
-	<!-- Spring과 MYBATIS 연동 설정 -->
+	<!-- Spring과 MyBatis 연동 설정 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value="classPath:sql-map-config(mybatis)"></property>
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:sql-map-config(mybatis).xml"/>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSession"></constructor-arg>
+		<constructor-arg ref="sqlSession"/>
 	</bean>
-
+	
 	<!-- JdbcTemplate 등록 -->
 	<bean class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
-
+	
 	<!-- Transaction 설정 -->
-	<bean id="txManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
-
+	
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="*" rollback-for="Exception" />
+			<tx:method name="*" rollback-for="Exception"/>
 		</tx:attributes>
 	</tx:advice>
-
+	
 	<aop:config>
-		<aop:pointcut id="txPointcut"
-			expression="execution(* com.my.biz..*Impl.*(..))" />
-
-		<aop:advisor pointcut-ref="txPointcut"
-			advice-ref="txAdvice" />
-	</aop:config>
-
-
-	<!-- 횡단관심에 해당하는 Advice 클래스 등록 <bean id="log" class="com.my.biz.common.LogAdvice"></bean> 
-		<bean id="afterReturning" class="com.my.biz.common.AfterReturningAdvice"></bean> 
-		<bean id="afterThrowing" class="com.my.biz.common.AfterThrowingAdvice"></bean> 
-		<bean id="around" class="com.my.biz.common.AroundAdvice" ></bean> -->
-
-
-	<!-- AOP 설정 
-	<aop:config> 
-		<aop:pointcut id="allPointcut" expression="execution(* com.my.biz..*Impl.*(..))"/>
-		<aop:pointcut id="getPointcut" expression="execution(* com.my.biz..*Impl.get*(..))" /> 
-			<aop:aspect ref="log"> 
-				<aop:before pointcut-ref="allPointcut" method="printLog"/> 
-			</aop:aspect> 
-		<aop:aspect ref="afterReturning"> 
-			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/> 
-		</aop:aspect> 
-		<aop:aspect ref="afterThrowing"> 
-			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exceptObj"/> 
-		</aop:aspect> 
-		<aop:aspect ref="around"> 
-			<aop:around pointcut-ref="allPointcut" method="AroundLog"/> 
-		</aop:aspect> 
+		<aop:pointcut id="txPointcut" expression="execution(* com.my.biz..*Impl.*(..))"/>
 		
-	</aop:config> -->
-
+		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+	</aop:config>
+	
+	<!-- 횡단관심에 해당하는 Advice 클래스 등록 
+	<bean id="log"            class="com.ssamz.biz.common.LogAdvice"/>
+	<bean id="afterReturning" class="com.ssamz.biz.common.AfterReturningAdvice"/>
+	<bean id="afterThrowing"  class="com.ssamz.biz.common.AfterThrowingAdvice"/>
+	<bean id="around"         class="com.ssamz.biz.common.AroundAdvice"/>
+	-->
+	
+	<!-- AOP 설정 
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.ssamz.biz..*Impl.*(..))"/>
+		<aop:pointcut id="getPointcut" expression="execution(* com.ssamz.biz..*Impl.get*(..))"/>
+		
+		<aop:aspect ref="log">
+			<aop:before pointcut-ref="allPointcut" method="printLog"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="afterThrowing">
+			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exceptObj"/>
+		</aop:aspect>
+	
+		<aop:aspect ref="around">
+			<aop:around pointcut-ref="allPointcut" method="aroudLog"/>
+		</aop:aspect>	
+	</aop:config>
+	-->
+	
 </beans>
+
+
+
+
+
+
+

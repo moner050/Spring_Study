@@ -7,27 +7,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.my.biz.common.JDBCUtil;
 
 // 2. DAO(Data Access Object) 클래스
-//@Repository
-public class BoardDAOJDBC implements BoardDAO{
+// @Repository
+public class BoardDAOJDBC implements BoardDAO {
 	// JDBC 관련 변수
 	private Connection conn;
 	private PreparedStatement stmt;   
 	private ResultSet rs;
 	
 	// SQL 명령어
-	private final String BOARD_INSERT         = "insert into board(seq, title, writer, content) "
-			                                  + "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
-	private final String BOARD_UPDATE         = "update board set title = ?, content = ? where seq = ?";
-	private final String BOARD_DELETE         = "delete board where seq = ?";
-	private final String BOARD_LIST_T         = "select * from board where title   like '%'||?||'%' order by seq desc";
-	private final String BOARD_LIST_C         = "select * from board where content like '%'||?||'%' order by seq desc";
-	private final String BOARD_GET    		  = "select * from board where seq = ?";
-	private final String BOARD_UPDATE_CNT	  = "update board set cnt = cnt+1 where seq = ?";
+	private final String BOARD_INSERT     = "insert into board(seq, title, writer, content) "
+			                              + "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
+	private final String BOARD_UPDATE     = "update board set title = ?, content = ? where seq = ?";
+	private final String BOARD_UPDATE_CNT = "update board set cnt = cnt + 1 where seq = ?";
+	private final String BOARD_DELETE     = "delete board where seq = ?";
+	private final String BOARD_LIST_T     = "select * from board where title   like '%'||?||'%' order by seq desc";
+	private final String BOARD_LIST_C     = "select * from board where content like '%'||?||'%' order by seq desc";
+	private final String BOARD_GET        = "select * from board where seq = ?";
 
 	public BoardDAOJDBC() {
 		System.out.println("===> BoardDAO 생성");
@@ -35,8 +33,8 @@ public class BoardDAOJDBC implements BoardDAO{
 	
 	// CRUD 기능의 메소드
 	// 글 등록
-	@Override
 	public void insertBoard(BoardVO vo) {
+		System.out.println("===> JDBC 기반으로 insertBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_INSERT);
@@ -52,8 +50,8 @@ public class BoardDAOJDBC implements BoardDAO{
 	}
 	
 	// 글 수정
-	@Override
 	public void updateBoard(BoardVO vo) {
+		System.out.println("===> JDBC 기반으로 updateBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_UPDATE);
@@ -69,8 +67,8 @@ public class BoardDAOJDBC implements BoardDAO{
 	}
 	
 	// 글 삭제
-	@Override
 	public void deleteBoard(BoardVO vo) {
+		System.out.println("===> JDBC 기반으로 deleteBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_DELETE);
@@ -83,29 +81,43 @@ public class BoardDAOJDBC implements BoardDAO{
 		}
 	}
 	
+//	// 조회수 증가 메소드
+//	public void updateBoardCnt(int cnt) {
+//		System.out.println("===> JDBC 기반으로 updateBoardCnt() 기능 처리");
+//		try {
+//			conn = JDBCUtil.getConnection();
+//			stmt = conn.prepareStatement(BOARD_UPDATE_CNT);
+//			stmt.setInt(1, cnt);
+//			stmt.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			JDBCUtil.close(stmt, conn);
+//		}
+//	}
+	
 	// 글 상세 조회
-	@Override
 	public BoardVO getBoard(BoardVO vo) {
+		System.out.println("===> JDBC 기반으로 getBoard() 기능 처리");
 		BoardVO board = null;
-		// 검색 결과가 있을 경우에만 조회수를 증가
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_GET);
 			stmt.setInt(1, vo.getSeq());
 			rs = stmt.executeQuery();
-			if(rs.next()) {
-				// 검색 결과가 있을 경우에만 조회수를 증가
+			if(rs.next()) {				
+				// 검색 결과가 있을 경우에만 조회수를 증가시켜야 한다. 
 				stmt = conn.prepareStatement(BOARD_UPDATE_CNT);
 				stmt.setInt(1, vo.getSeq());
 				stmt.executeUpdate();
-				// 검색 결과가 있을 경우에만 조회수를 증가
+				
 				board = new BoardVO();
 				board.setSeq(rs.getInt("SEQ"));
 				board.setTitle(rs.getString("TITLE"));
 				board.setContent(rs.getString("CONTENT"));
 				board.setWriter(rs.getString("WRITER"));
 				board.setRegDate(rs.getDate("REGDATE"));
-				board.setCnt(rs.getInt("CNT") + 1);
+				board.setCnt(rs.getInt("CNT"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -116,8 +128,8 @@ public class BoardDAOJDBC implements BoardDAO{
 	}
 	
 	// 글 목록 검색
-	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
+		System.out.println("===> JDBC 기반으로 getBoardList() 기능 처리");
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
 		try {
 			conn = JDBCUtil.getConnection();

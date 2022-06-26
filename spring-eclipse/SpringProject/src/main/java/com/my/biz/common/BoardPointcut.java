@@ -5,22 +5,16 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class BoardPointcut {
-	
-	@Pointcut("execution(* com.my.biz..*Impl.*(..))")
-	public void allPointcut() {
-		
-	}
-	@Pointcut("execution(* com.my.biz..*Impl.get*(..))")
-	public void getPointcut() {
-		
-	}
-	@Pointcut("execution(* com.my.biz.user.*Impl.get*(..))")
-	public void userPointcut() {
-		
-	}
-	@Pointcut("execution(* com.my.biz.board.*Impl.get*(..))")
-	public void boardPointcut() {
-		
-	}
 
+	@Pointcut("execution(* com.ssamz.biz..*Impl.*(..))")
+	public void allPointcut() {}
+	
+	@Pointcut("execution(* com.ssamz.biz..*Impl.get*(..))")
+	public void getPointcut() {}
+	
+	@Pointcut("execution(* com.ssamz.biz.user.*Impl.*(..))")
+	public void userPointcut() {}
+	
+	@Pointcut("execution(* com.ssamz.biz.board.*Impl.*(..))")
+	public void boardPointcut() {}
 }

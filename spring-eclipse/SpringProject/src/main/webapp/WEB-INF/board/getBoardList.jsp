@@ -8,8 +8,8 @@
 <form action="getBoardList.do" method="post">
 <table border="1" cellpadding="0" cellspacing="0" width="700">
 	<tr>
-		<td align="left"> ${searchCount }건 검색됨</td>
 		<td align="right">
+			${searchCount }건 검색됨
 			<select name="searchCondition">
 				<option value="TITLE" <c:if test="${condition == 'TITLE' }">selected</c:if>>제목				
 				<option value="CONTENT" <c:if test="${condition == 'CONTENT' }">selected</c:if>>내용
