@@ -3,17 +3,16 @@ package my.core;
 import my.core.member.Grade;
 import my.core.member.Member;
 import my.core.member.MemberService;
-import my.core.member.MemberServiceImpl;
 import my.core.order.Order;
 import my.core.order.OrderService;
-import my.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        // 회원생성 후 주문할 때 할인정책이 잘 적용되나 테스트
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         // VIP 등급의 회원 생성

@@ -1,16 +1,26 @@
 package my.core.order;
 
+import my.core.AppConfig;
 import my.core.member.Grade;
 import my.core.member.Member;
 import my.core.member.MemberService;
 import my.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    // 테스트가 실행되기 전에 무조건 실행이 되는 것
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder(){

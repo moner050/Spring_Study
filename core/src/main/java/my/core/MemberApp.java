@@ -3,13 +3,14 @@ package my.core;
 import my.core.member.Grade;
 import my.core.member.Member;
 import my.core.member.MemberService;
-import my.core.member.MemberServiceImpl;
 
 public class MemberApp {
 
     public static void main(String[] args) {
         // 맴버 회원가입이 잘 동작하나 테스트
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+
         Member member = new Member(1L, "memberA", Grade.VIP);
         // 회원가입.
         memberService.join(member);
