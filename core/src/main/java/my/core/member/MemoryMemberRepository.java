@@ -2,7 +2,9 @@ package my.core.member;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 
     // 메모리에 저장하기 위해 Map 선언 (HashMap 은 동시성 이슈가 발생할 수 있음.)
