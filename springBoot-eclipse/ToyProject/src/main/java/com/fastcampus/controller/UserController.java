@@ -18,6 +18,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	// 로그인 화면 이동
+	@GetMapping("/auth/login") 
+	public String login() {
+		return "system/login";
+	}
+	
 	// 회원 가입 화면 이동
     @GetMapping("/auth/insertUser") 
 	public String insertUser() {

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+
+<!-- 브라우저가 인증에 성공했는지 확인한다 -->
+<sec:authorize access="isAuthenticated()">
+	<!-- JSP 파일에서 사용할 인증과 관련한 변수를 초기화한다. -->
+	<sec:authentication property="principal" var="principal" />
+</sec:authorize>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +27,7 @@
 
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="javascript:void(0)">Main</a>
+			<a class="navbar-brand" href="/">Main</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>

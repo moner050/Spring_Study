@@ -1,4 +1,4 @@
-let loginObject = {
+/*let loginObject = {
 	
 	init : function() {
 		$("#btn-login").on("click", () => {
@@ -26,4 +26,4 @@ let loginObject = {
 	},
 }
 
-loginObject.init();
+loginObject.init();*/
