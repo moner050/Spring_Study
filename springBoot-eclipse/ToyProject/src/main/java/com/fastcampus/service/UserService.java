@@ -11,18 +11,17 @@ import com.fastcampus.domain.User;
 import com.fastcampus.persistence.UserRepository;
 
 @Service
+@Transactional
 public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Transactional
 	public void insertUser(User user) {
 		user.setRole("USER");
 		userRepository.save(user);
 	}
 	
-	@Transactional
 	public User getUser(String username) {	
 		Optional<User> findUser = userRepository.findByUsername(username);
 		if(findUser.isPresent()) {
