@@ -1,5 +1,9 @@
 package com.fastcampus.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -20,14 +25,18 @@ public class Reply {
 	private int id;
 	
 	@Column(nullable = false)
-	private String content;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID")
-	private User user;
+	private String comment;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "POST_ID")
 	private Post post;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_ID")
+	private User user;
+	
+    // 댓글 리스트
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private List<Reply> replyList = new ArrayList<>();
+
 }

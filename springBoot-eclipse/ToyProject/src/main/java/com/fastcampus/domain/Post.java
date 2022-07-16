@@ -43,9 +43,6 @@ public class Post {
 	@JoinColumn(name = "USER_ID") // FK
 	private User user;
     
-    // 댓글 리스트
-    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
-    private List<Reply> replyList = new ArrayList<>();
 }
 
 

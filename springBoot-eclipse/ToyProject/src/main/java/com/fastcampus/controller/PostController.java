@@ -18,6 +18,7 @@ import com.fastcampus.domain.Post;
 import com.fastcampus.domain.User;
 import com.fastcampus.security.jpa.UserDetailsImpl;
 import com.fastcampus.service.PostService;
+import com.fastcampus.service.ReplyService;
 
 @Controller
 public class PostController {
@@ -25,19 +26,24 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
+	@Autowired
+	private ReplyService replyService;
+	
 	// 게시글 목록
     @GetMapping({"", "/"})
     public String getPostList(Model model, HttpSession session,
     						@PageableDefault(size = 3, sort = "id", direction = Direction.DESC) Pageable pageable) {
     	session.removeAttribute("post");
+    	session.removeAttribute("replyList");
     	model.addAttribute("postList", postService.getPostList(pageable));
         return "welcome";
     }
     
     // 게시글 조회
     @GetMapping("/post/{id}")
-    public String getPost(@PathVariable("id") int id ,Model model) {
-    	model.addAttribute("post", postService.getPost(id));
+    public String getPost(@PathVariable("id") int id ,HttpSession session) {
+    	session.setAttribute("post", postService.getPost(id));
+    	session.setAttribute("replyList", replyService.getReplyList(id));
     	return "post/getPost";
     }
     
