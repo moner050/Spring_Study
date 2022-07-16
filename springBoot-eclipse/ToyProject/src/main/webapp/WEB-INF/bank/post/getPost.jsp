@@ -21,14 +21,14 @@
 				<a href="/post/updatePost/${post.id }" class="btn btn-warning">수정하기</a>
 				<button type="button" id="btn-delete" class="btn btn-danger">삭제하기</button>
 			</c:if>
-		</div>
+		
 		<c:if test="${post.user.username == principal.username }">
 		<table class="table table-hover">
 		    <thead>
 		      <tr>
-		        <th>내용</th>
-		        <th>작성자</th>
-		        <th>삭제</th>
+		        <th class="col-sm-10">내용</th>
+		        <th class="col-sm-1">작성자</th>
+		        <th class="col-sm-1">삭제</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -50,6 +50,13 @@
 		    </tbody>
 	  	</table>
 	  	</c:if>
+	  	<form action="/action_page.php">
+	    	<div class="mb-3 mt-3">
+	      	<textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+	    	</div>
+	    	<button type="submit" class="btn btn-primary">덧글등록</button>
+	  	</form>
+	  	</div>
   	</div>
 </div>
 
