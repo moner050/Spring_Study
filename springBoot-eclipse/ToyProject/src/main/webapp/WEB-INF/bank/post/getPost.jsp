@@ -15,47 +15,70 @@
 			</div>
 			<br>
 			<hr>
-			<button type="button" class="btn btn-secondary"
-				onclick="history.back()">돌아가기</button>
+			<button type="button" class="btn btn-secondary" onclick="history.back()">돌아가기</button>
 			<c:if test="${post.user.username == principal.username }">
 				<a href="/post/updatePost/${post.id }" class="btn btn-warning">수정하기</a>
 				<button type="button" id="btn-delete" class="btn btn-danger">삭제하기</button>
 			</c:if>
 		
-			<c:if test="${post.user.username == principal.username }">
 			<table class="table table-hover">
 			    <thead>
 			      <tr>
 			        <th class="col-sm-10">내용</th>
 			        <th class="col-sm-1">작성자</th>
-			        <th class="col-sm-1">삭제</th>
+				    <th class="col-sm-1">삭제</th>
 			      </tr>
 			    </thead>
 			    <tbody>
  		    		<c:if test="${!empty replyList }">
-						<c:forEach var="reply" items="${replyList }">
+						<c:forEach var="reply" items="${replyList.content }">
 						<tr>
 							<td>${reply.comment }</td>
 							<td>${reply.user.username }</td>
-							<td><button type="button" id="btn-replyDelete" class="btn btn-light">삭제</button></td>
+							<c:if test="${reply.user.username == principal.username }">
+								<td>
+								<button type="button" class="btn btn-light" onclick="deleteReply(${reply.id})">삭제</button>
+								</td>
+							</c:if>
+							<c:if test="${reply.user.username != principal.username }">
+								<td><button type="button" class="btn btn-light" disabled>삭제</button></td>
+							</c:if>
 						</tr>
 						</c:forEach>
 					</c:if>
 			    </tbody>
+			    <ul class="pagination justify-content-end">
+				  <li class="page-item <c:if test="${replyList.first }">disabled</c:if> "><a class="page-link" href="?page=${replyList.number - 1 }">이전 페이지</a></li>
+				  <li class="page-item <c:if test="${replyList.last }">disabled</c:if>"><a class="page-link" href="?page=${replyList.number + 1 }">다음 페이지</a></li>
+				</ul>
 		  	</table>
 		  	<br>
 		  	  <form>
 			    <div class="mb-3 mt-3">
 			      <textarea class="form-control" rows="1" id="comment" name="text"></textarea>
 			    </div>
-			    <button type="button" id="btn-insertReply" class="btn btn-primary">덧글등록</button>
+			    <button type="button" class="btn-insertReply" class="btn btn-primary">덧글등록</button>
 			  </form>
-	  	</c:if>
+	  		
 	  	</div>
   	</div>
 </div>
 
 <script src="/js/post.js"></script>
 <script src="/js/reply.js"></script>
+<script>
+function deleteReply(id){
+	alert("댓글 삭제 요청됨");
+	// Ajax를 이용한 비동기 호출
+	$.ajax({
+		type: "DELETE", // 요청 방식
+		url: "/post/deleteReply/" + id, // 요청 path
+	}).done(function(response) {
+		alert(response);
+		location.reload();
+	});
+}
+</script>
+
 
 <%@ include file="../layout/footer.jsp"%>

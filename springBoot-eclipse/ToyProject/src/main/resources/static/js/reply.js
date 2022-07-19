@@ -6,18 +6,23 @@ let replyObject = {
 		let _this = this;
 		
 		// "#btn-insert" 버튼에 "click" 이벤트가 발생하면 insertPost() 함수를 호출한다. 
-		$("#btn-insertReply").on("click", () => {
+		$(".btn-insertReply").on("click", () => {
 			_this.insertReply();
 		});
+		
+		// "#btn-insert" 버튼에 "click" 이벤트가 발생하면 insertPost() 함수를 호출한다. 
+		$(".btn-deleteReply").on("click", () => {
+			_this.deleteReply();
+		});
+		
 	},
 	
 	insertReply: function() {
 		alert("댓글 등록 요청됨");
 		
 		let reply = {
-			id : $("#id").val(),
-			comment : $("#comment").val(),
-		}		
+			comment : $("#comment").val()
+		}	
 
 		// Ajax를 이용한 비동기 호출
 		$.ajax({
@@ -29,11 +34,22 @@ let replyObject = {
 			// done() : 요청 처리에 성공했을 때 실행될 코드를 작성한다.
 			// 응답으로 들어온 JSON 데이터를 response로 받는다. 
 		}).done(function(response) {
-			// 메인 페이지로 이동한다.
 			alert(response);
-			location = "/";
+			location.reload();
 		});
+	},
+	
+		deleteReply: function(id) {
+		alert("댓글 삭제 요청됨");
 
+		// Ajax를 이용한 비동기 호출
+		$.ajax({
+			type: "DELETE", // 요청 방식
+			url: "/post/deleteReply/" + id, // 요청 path
+		}).done(function(response) {
+			alert(response);
+			location.reload();
+		});
 	}
 
 }

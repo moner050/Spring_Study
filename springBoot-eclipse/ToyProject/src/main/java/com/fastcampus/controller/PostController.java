@@ -1,5 +1,6 @@
 package com.fastcampus.controller;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -41,9 +42,10 @@ public class PostController {
     
     // 게시글 조회
     @GetMapping("/post/{id}")
-    public String getPost(@PathVariable("id") int id ,HttpSession session) {
+    public String getPost(@PathVariable("id") int id ,HttpSession session,
+    		@PageableDefault(size = 3, sort = "id", direction = Direction.DESC) Pageable pageable) {
     	session.setAttribute("post", postService.getPost(id));
-    	session.setAttribute("replyList", replyService.getReplyList(id));
+    	session.setAttribute("replyList", replyService.getReplyList(id, pageable));
     	return "post/getPost";
     }
     

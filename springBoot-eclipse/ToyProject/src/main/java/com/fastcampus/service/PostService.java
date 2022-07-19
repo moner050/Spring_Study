@@ -11,7 +11,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.fastcampus.domain.Post;
+import com.fastcampus.domain.Reply;
 import com.fastcampus.persistence.PostRepository;
+import com.fastcampus.persistence.ReplyRepository;
 
 @Service
 @Transactional
@@ -19,6 +21,9 @@ public class PostService {
 
 	@Autowired
 	private PostRepository postRepository;
+	
+	@Autowired
+	private ReplyRepository replyRepository;
 	
 	// 게시글 등록
 	public void insertPost(Post post) {
@@ -33,6 +38,7 @@ public class PostService {
 	// 게시글 상세 보기
 	public Post getPost(int id){
 		Optional<Post> findPost = postRepository.findById(id);
+		
 		if(findPost.isPresent()) return findPost.get();
 		return new Post();
 	}

@@ -1,6 +1,6 @@
 package com.fastcampus.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.transaction.Transactional;
 
@@ -20,8 +20,13 @@ public class ReplyService {
 	private ReplyRepository replyRepository;
 	
 	// 댓글 목록
-	public List<Reply> getReplyList(Integer id){
-		return replyRepository.findAllByPost_Id(id);
+//	public ArrayList<Reply> getReplyList(int id){
+//		return replyRepository.findAllByPost_Id(id);
+//	}
+
+	// 댓글 목록
+	public Page<Reply> getReplyList(int id, Pageable pageable){
+		return replyRepository.findAllByPost_Id(id, pageable);
 	}
 	
 	// 댓글 추가
