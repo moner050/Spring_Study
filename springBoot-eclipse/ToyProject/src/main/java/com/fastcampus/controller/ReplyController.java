@@ -1,10 +1,5 @@
 package com.fastcampus.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -16,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fastcampus.domain.Post;
 import com.fastcampus.domain.Reply;
+import com.fastcampus.domain.User;
 import com.fastcampus.security.jpa.UserDetailsImpl;
 import com.fastcampus.service.PostService;
 import com.fastcampus.service.ReplyService;
@@ -34,14 +30,18 @@ public class ReplyController {
 	private UserService userService;
 	
 	// 댓글 등록
-	@PostMapping("/post/insertReply")
-	public @ResponseBody String insertReply(@RequestBody Reply reply, HttpSession session, @AuthenticationPrincipal UserDetailsImpl userDetailsImpl) {
-		Post myPost = (Post) session.getAttribute("post");
+	@PostMapping("/post/insertReply/{id}")
+	public @ResponseBody String insertReply(@PathVariable int id
+			, @AuthenticationPrincipal UserDetailsImpl userDetailsImpl
+			, @RequestBody Reply reply) {
 		
-		reply.setPost(myPost);
-		reply.setUser(userDetailsImpl.getUser());
+		String username = userDetailsImpl.getUsername();
+		Post post = postService.getPost(id);
+		User user = userService.getUser(username);
 		
-		System.out.println(reply.toString());
+		reply.setPost(post);
+		reply.setUser(user);
+		
 		replyService.insertReply(reply);
 		
 		return "댓글 등록이 완료되었습니다.";

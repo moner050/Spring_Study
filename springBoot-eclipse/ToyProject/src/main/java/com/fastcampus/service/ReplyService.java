@@ -18,13 +18,13 @@ public class ReplyService {
 
 	@Autowired
 	private ReplyRepository replyRepository;
-	
-	// 댓글 목록
-//	public ArrayList<Reply> getReplyList(int id){
-//		return replyRepository.findAllByPost_Id(id);
-//	}
 
 	// 댓글 목록
+	public ArrayList<Reply> getReplyList1(int id){
+		return replyRepository.findByPost_Id(id);
+	}
+	
+	// 댓글 목록(Pageable 이용)
 	public Page<Reply> getReplyList(int id, Pageable pageable){
 		return replyRepository.findAllByPost_Id(id, pageable);
 	}
@@ -37,6 +37,11 @@ public class ReplyService {
 	// 댓글 삭제
 	public void deleteReply(Integer id) {
 		replyRepository.deleteById(id);
+	}
+	
+	// 댓글 전체 삭제
+	public void deleteAllReply() {
+
 	}
 	
 }

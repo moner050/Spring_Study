@@ -4,8 +4,10 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,16 +17,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.Data;
-/*
-DROP TABLE USERS;
-
-CREATE TABLE USERS (
-	ID 			NUMBER(5) 	PRIMARY KEY,
-	USERNAME 	VARCHAR2(30),
-	PASSWORD 	VARCHAR2(100),
-	EMAIL 		VARCHAR2(30)
-);
-*/
 
 @Data
 @Table(name = "USERS")
@@ -41,8 +33,8 @@ public class User {
 	@CreationTimestamp // 현재 시간 정보가 자동으로 설정된다.
 	private Timestamp createDate;
 	
-//	@OneToMany(mappedBy = "USER_ID")
-//	private List<Post> postList = new ArrayList<>();
+//    @OneToMany(fetch = FetchType.EAGER ,mappedBy = "user", cascade = CascadeType.REMOVE)
+//    private List<Reply> replyList = new ArrayList<>();
 }
 
 

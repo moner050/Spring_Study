@@ -1,7 +1,4 @@
 package com.fastcampus.controller;
-import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -29,23 +26,20 @@ public class PostController {
 	
 	@Autowired
 	private ReplyService replyService;
-	
+
 	// 게시글 목록
     @GetMapping({"", "/"})
-    public String getPostList(Model model, HttpSession session,
+    public String getPostList(Model model,
     						@PageableDefault(size = 3, sort = "id", direction = Direction.DESC) Pageable pageable) {
-    	session.removeAttribute("post");
-    	session.removeAttribute("replyList");
     	model.addAttribute("postList", postService.getPostList(pageable));
         return "welcome";
     }
     
     // 게시글 조회
     @GetMapping("/post/{id}")
-    public String getPost(@PathVariable("id") int id ,HttpSession session,
-    		@PageableDefault(size = 3, sort = "id", direction = Direction.DESC) Pageable pageable) {
-    	session.setAttribute("post", postService.getPost(id));
-    	session.setAttribute("replyList", replyService.getReplyList(id, pageable));
+    public String getPost(@PathVariable("id") int id ,Model model) {
+    	model.addAttribute("post", postService.getPost(id));
+    	model.addAttribute("replyList", replyService.getReplyList1(id));
     	return "post/getPost";
     }
     
@@ -68,30 +62,27 @@ public class PostController {
     
     // 게시글 수정페이지 가기
     @GetMapping("/post/updatePost/{id}")
-    public String updatePost(@PathVariable("id") int id ,HttpSession session) {
-    	session.setAttribute("post", postService.getPost(id));
+    public String updatePost(@PathVariable("id") int id ,Model model) {
+    	model.addAttribute("post", postService.getPost(id));
     	return "post/insertPost";
     }
     
     // 게시글 수정하기
-    @PostMapping("/post/updatePost")
-    public String updatePost(@RequestBody Post post, HttpSession session) {
-    	Post myPost = (Post)session.getAttribute("post");
+    @PostMapping("/post/updatePost/{id}")
+    public String updatePost(@PathVariable("id") int id, @RequestBody Post post) {
+    	Post myPost = postService.getPost(id);
     	
     	myPost.setTitle(post.getTitle());
     	myPost.setContent(post.getContent());
+    	
     	postService.updatePost(myPost);
-    
     	return "welcome";
     }
     
-    
     // 게시글 삭제하기
-    @PostMapping("/post/deletePost")
-    public String deletePost(HttpSession session) {
-    	Post post = (Post) session.getAttribute("post");
-    	postService.deletePost(post.getId());
-
+    @PostMapping("/post/deletePost/{id}")
+    public String deletePost(@PathVariable("id") int id) {
+    	postService.deletePostById(id);
     	return "welcome";
     }
 }

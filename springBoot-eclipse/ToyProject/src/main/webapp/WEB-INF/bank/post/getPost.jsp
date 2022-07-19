@@ -18,7 +18,7 @@
 			<button type="button" class="btn btn-secondary" onclick="history.back()">돌아가기</button>
 			<c:if test="${post.user.username == principal.username }">
 				<a href="/post/updatePost/${post.id }" class="btn btn-warning">수정하기</a>
-				<button type="button" id="btn-delete" class="btn btn-danger">삭제하기</button>
+				<button type="button" class="btn btn-danger" onclick="deletePost(${post.id})">삭제하기</button>
 			</c:if>
 		
 			<table class="table table-hover">
@@ -31,7 +31,7 @@
 			    </thead>
 			    <tbody>
  		    		<c:if test="${!empty replyList }">
-						<c:forEach var="reply" items="${replyList.content }">
+						<c:forEach var="reply" items="${replyList }">
 						<tr>
 							<td>${reply.comment }</td>
 							<td>${reply.user.username }</td>
@@ -47,17 +47,17 @@
 						</c:forEach>
 					</c:if>
 			    </tbody>
-			    <ul class="pagination justify-content-end">
+<%-- 			    <ul class="pagination justify-content-end">
 				  <li class="page-item <c:if test="${replyList.first }">disabled</c:if> "><a class="page-link" href="?page=${replyList.number - 1 }">이전 페이지</a></li>
 				  <li class="page-item <c:if test="${replyList.last }">disabled</c:if>"><a class="page-link" href="?page=${replyList.number + 1 }">다음 페이지</a></li>
-				</ul>
+				</ul> --%>
 		  	</table>
 		  	<br>
 		  	  <form>
 			    <div class="mb-3 mt-3">
 			      <textarea class="form-control" rows="1" id="comment" name="text"></textarea>
 			    </div>
-			    <button type="button" class="btn-insertReply" class="btn btn-primary">덧글등록</button>
+			    <button type="button" class="btn btn-primary" onclick="insertReply(${post.id})">덧글등록</button>
 			  </form>
 	  		
 	  	</div>
@@ -65,7 +65,6 @@
 </div>
 
 <script src="/js/post.js"></script>
-<script src="/js/reply.js"></script>
 <script>
 function deleteReply(id){
 	alert("댓글 삭제 요청됨");
@@ -73,6 +72,43 @@ function deleteReply(id){
 	$.ajax({
 		type: "DELETE", // 요청 방식
 		url: "/post/deleteReply/" + id, // 요청 path
+	}).done(function(response) {
+		alert(response);
+		location.reload();
+	});
+}
+</script>
+<script>
+function deletePost(id){
+
+	// Ajax를 이용한 비동기 호출
+	$.ajax({
+		type: "POST", // 요청 방식
+		url: "/post/deletePost/" + id, // 요청 path
+		// done() : 요청 처리에 성공했을 때 실행될 코드를 작성한다.
+		// 응답으로 들어온 JSON 데이터를 response로 받는다. 
+	}).done(function() {
+		// 메인 페이지로 이동한다.
+		location = "/";
+	});
+}
+</script>
+<script>
+function insertReply(id){
+	alert("댓글 등록 요청됨");
+
+	let reply = {
+		comment : $("#comment").val()
+	}	
+	// Ajax를 이용한 비동기 호출
+	$.ajax({
+		type: "POST", // 요청 방식
+		url: "/post/insertReply/" + id, // 요청 path
+		data: JSON.stringify(reply), // reply Object를 JSON으로 변환
+		// HTTP 바디에 설정되는 데이터의 마임타입설정 
+		contentType: "application/json; charset=utf-8"
+		// done() : 요청 처리에 성공했을 때 실행될 코드를 작성한다.
+		// 응답으로 들어온 JSON 데이터를 response로 받는다. 
 	}).done(function(response) {
 		alert(response);
 		location.reload();

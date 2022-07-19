@@ -1,6 +1,5 @@
 package com.fastcampus.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -11,9 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.fastcampus.domain.Post;
-import com.fastcampus.domain.Reply;
 import com.fastcampus.persistence.PostRepository;
-import com.fastcampus.persistence.ReplyRepository;
 
 @Service
 @Transactional
@@ -21,9 +18,6 @@ public class PostService {
 
 	@Autowired
 	private PostRepository postRepository;
-	
-	@Autowired
-	private ReplyRepository replyRepository;
 	
 	// 게시글 등록
 	public void insertPost(Post post) {
@@ -49,7 +43,12 @@ public class PostService {
 	}
 	
 	// 게시글 삭제
-	public void deletePost(Integer id) {
+	public void deletePost(Post post) {
+		postRepository.delete(post);
+	}
+	
+	// 게시글 번호로 삭제
+	public void deletePostById(Integer id) {
 		postRepository.deleteById(id);
 	}
 

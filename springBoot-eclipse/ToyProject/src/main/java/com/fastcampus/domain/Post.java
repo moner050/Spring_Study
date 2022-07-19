@@ -15,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.transaction.Transactional;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -23,10 +22,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class Post {
 	@Id // 식별자 변수(== Primary Key) 선언
 	// 1부터 시작하여 자동으로 1씩 값이 증가하도록 설정한다. 
@@ -49,14 +48,9 @@ public class Post {
 	@JoinColumn(name = "USER_ID") // FK
 	private User user;
     
-    // 댓글 리스트
-	@OneToMany(fetch = FetchType.EAGER ,mappedBy = "post", cascade = CascadeType.REMOVE)
-	private ArrayList<Reply> replyList;
-	
-	public void addReply(Reply reply) {
-		replyList.add(reply);
-		reply.setPost(this);
-	}
+    @OneToMany(fetch = FetchType.EAGER ,mappedBy = "post", cascade = CascadeType.REMOVE)
+    private List<Reply> replyList = new ArrayList<>();
+
 }
 
 
