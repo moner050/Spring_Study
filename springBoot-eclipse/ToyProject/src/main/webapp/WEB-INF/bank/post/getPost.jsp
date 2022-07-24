@@ -66,19 +66,6 @@
 
 <script src="/js/post.js"></script>
 <script>
-function deleteReply(id){
-	alert("댓글 삭제 요청됨");
-	// Ajax를 이용한 비동기 호출
-	$.ajax({
-		type: "DELETE", // 요청 방식
-		url: "/post/deleteReply/" + id, // 요청 path
-	}).done(function(response) {
-		alert(response);
-		location.reload();
-	});
-}
-</script>
-<script>
 function deletePost(id){
 
 	// Ajax를 이용한 비동기 호출
@@ -90,6 +77,19 @@ function deletePost(id){
 	}).done(function() {
 		// 메인 페이지로 이동한다.
 		location = "/";
+	});
+}
+</script>
+<script>
+function deleteReply(id){
+	alert("댓글 삭제 요청됨");
+	// Ajax를 이용한 비동기 호출
+	$.ajax({
+		type: "DELETE", // 요청 방식
+		url: "/post/deleteReply/" + id, // 요청 path
+	}).done(function(response) {
+		alert(response);
+		location.reload();
 	});
 }
 </script>

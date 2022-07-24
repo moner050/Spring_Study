@@ -39,7 +39,7 @@ public class PostController {
     @GetMapping("/post/{id}")
     public String getPost(@PathVariable("id") int id ,Model model) {
     	model.addAttribute("post", postService.getPost(id));
-    	model.addAttribute("replyList", replyService.getReplyList1(id));
+    	model.addAttribute("replyList", replyService.getReplyList(id));
     	return "post/getPost";
     }
     

@@ -20,12 +20,12 @@ public class ReplyService {
 	private ReplyRepository replyRepository;
 
 	// 댓글 목록
-	public ArrayList<Reply> getReplyList1(int id){
+	public ArrayList<Reply> getReplyList(int id){
 		return replyRepository.findByPost_Id(id);
 	}
 	
 	// 댓글 목록(Pageable 이용)
-	public Page<Reply> getReplyList(int id, Pageable pageable){
+	public Page<Reply> getReplyListPageable(int id, Pageable pageable){
 		return replyRepository.findAllByPost_Id(id, pageable);
 	}
 	
