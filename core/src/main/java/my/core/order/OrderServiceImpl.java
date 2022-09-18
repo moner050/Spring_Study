@@ -1,5 +1,6 @@
 package my.core.order;
 
+import lombok.RequiredArgsConstructor;
 import my.core.discount.DiscountPolicy;
 import my.core.member.Member;
 import my.core.member.MemberRepository;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -49,15 +51,14 @@ public class OrderServiceImpl implements OrderService{
 //        this.discountPolicy = discountPolicy;
 //    }
 
-
     // 생성자 주입 방식
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository,
-        DiscountPolicy discountPolicy) {
-        System.out.println("1. OrderServiceImpl");
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository,
+//        DiscountPolicy discountPolicy) {
+//        System.out.println("1. OrderServiceImpl");
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
