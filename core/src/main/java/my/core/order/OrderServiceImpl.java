@@ -5,20 +5,21 @@ import my.core.discount.DiscountPolicy;
 import my.core.member.Member;
 import my.core.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+//    private final MemberRepository memberRepository;
+//    private final DiscountPolicy rateDiscountPolicy;
 
     // 필드 주입방식
 //    @Autowired
-//    private MemberRepository memberRepository;
+//    private final MemberRepository memberRepository;
 //    @Autowired
-//    private DiscountPolicy discountPolicy;
+//    private final DiscountPolicy discountPolicy;
 //
 //    public void setMemberRepository(MemberRepository memberRepository) {
 //        this.memberRepository = memberRepository;
@@ -52,13 +53,18 @@ public class OrderServiceImpl implements OrderService{
 //    }
 
     // 생성자 주입 방식
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository,
-//        DiscountPolicy discountPolicy) {
-//        System.out.println("1. OrderServiceImpl");
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    // 만약 @Qualifier("mainDiscountPolicy") 를 못찾으면 mainDiscountPolicy 라는 이름의 스프링 빈을 추가로 찾는다.
+    // 하지만 @Qualifier 는 @Qualifier 를 찾는 용도로 사용하는게 명확하고 좋다.
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository,
+        @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+        System.out.println("1. OrderServiceImpl");
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

@@ -2,7 +2,11 @@ package my.core.discount;
 
 import my.core.member.Grade;
 import my.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
+@Qualifier("fixDiscountPolicy")
 public class FixDiscountPolicy implements DiscountPolicy{
 
     // 1000원 할인
