@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 class StateFulServiceTest {
 
     @Test
-    @DisplayName("")
+    @DisplayName("무상태로 설계하기")
     void stateFulServiceSingleton(){
 
         ApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
