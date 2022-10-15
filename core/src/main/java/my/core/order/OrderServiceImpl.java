@@ -1,6 +1,7 @@
 package my.core.order;
 
 import lombok.RequiredArgsConstructor;
+import my.core.annotation.MainDiscountPolicy;
 import my.core.discount.DiscountPolicy;
 import my.core.member.Member;
 import my.core.member.MemberRepository;
@@ -60,7 +61,7 @@ public class OrderServiceImpl implements OrderService{
     // 하지만 @Qualifier 는 @Qualifier 를 찾는 용도로 사용하는게 명확하고 좋다.
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository,
-        DiscountPolicy discountPolicy) {
+        @MainDiscountPolicy DiscountPolicy discountPolicy) {
         System.out.println("1. OrderServiceImpl");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
