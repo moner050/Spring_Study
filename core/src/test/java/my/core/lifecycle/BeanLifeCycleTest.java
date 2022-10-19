@@ -24,7 +24,12 @@ public class BeanLifeCycleTest {
         // destroyMethod 의 default 값은 (inferred) 이다.
         // 이 (inferred) 는 close 나 shutdown 이라는 이름의 메서드를 자동으로 호출해준다.
         // 그래서 따로 설정을 해주지않아도 자동으로 해당 이름의 메서드를 자동으로 호출해준다.
-        @Bean(initMethod = "init")
+        // 하지만 요즘엔 @PostConstruct, @PreDestroy 로 설정하는편이 좋다.
+        // 그러나 위의 방식은 외부 라이브러리에 적용을 하지 못한다는 점이 단점이다.
+        // 외부 라이브러리를 초기화, 종료 해야하면 @Bean 의 기능을 사용해야 한다.
+//        @Bean(initMethod = "init")
+
+        @Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("https://hello-spring.io");
