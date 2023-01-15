@@ -16,6 +16,9 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.0'
+
+    // 패스워드를 생성해주는 의존성
+    implementation 'org.passay:passay:1.6.2'
 }
 
 test {
