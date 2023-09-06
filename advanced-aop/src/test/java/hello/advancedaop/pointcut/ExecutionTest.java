@@ -157,7 +157,7 @@ public class ExecutionTest {
          * 예외?      : 없음
          ***/
         pointcut.setExpression("execution(* hello.advancedaop.*.*(..))");
-        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isFalse();
     }
 
     @Test
@@ -187,8 +187,144 @@ public class ExecutionTest {
          * 파라미터     : (..)
          * 예외?      : 없음
          ***/
-        // member 패키지와 그 하위에 있는 패키지들을 선언타입으로 설정
         pointcut.setExpression("execution(* hello.advancedaop..*.*(..))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    @Test
+    void typeExactMatch() {
+        // 타입매칭
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : hello.advancedaop.member.MemberServiceImpl
+         * 메서드이름    : *
+         * 파라미터     : (..)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* hello.advancedaop.member.MemberServiceImpl.*(..))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    @Test
+    void typeMatchSuperType() {
+        // 타입매칭(부모타입)
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : hello.advancedaop.member.MemberService
+         * 메서드이름    : *
+         * 파라미터     : (..)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* hello.advancedaop.member.MemberService.*(..))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    @Test
+    void typeMatchInternal() throws NoSuchMethodException {
+        // 타입매칭(부모타입에 있는 메서드만 가능하다.)
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : hello.advancedaop.member.MemberServiceImpl
+         * 메서드이름    : *
+         * 파라미터     : (..)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* hello.advancedaop.member.MemberServiceImpl.*(..))");
+        Method internalMethod = MemberServiceImpl.class.getMethod("internal", String.class);
+        assertThat(pointcut.matches(internalMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    @Test
+    void typeMatchNoSuperTypeMethodFalse() throws NoSuchMethodException {
+        // 타입매칭(부모타입에 있는 메서드만 가능하다.)
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : hello.advancedaop.member.MemberService
+         * 메서드이름    : *
+         * 파라미터     : (..)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* hello.advancedaop.member.MemberService.*(..))");
+        Method internalMethod = MemberServiceImpl.class.getMethod("internal", String.class);
+        assertThat(pointcut.matches(internalMethod, MemberServiceImpl.class)).isFalse();
+    }
+
+    // String 타입의 파라미터 허용
+    @Test
+    void argsMatch() {
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : 생략
+         * 메서드이름    : *
+         * 파라미터     : (String)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* *(String))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    // 파라미터가 없는것만 허용
+    @Test
+    void argsMatchNoArgs() {
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : 생략
+         * 메서드이름    : *
+         * 파라미터     : ()
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* *())");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isFalse();
+    }
+
+    // 정확히 하나의 파라미터 허용, 모든 타입 허용
+    @Test
+    void argsMatchStar() {
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : 생략
+         * 메서드이름    : *
+         * 파라미터     : (*)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* *(*))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    // 숫자와 무관하게 모든 파라미터, 모든 타입 허용
+    @Test
+    void argsMatchAll() {
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : 생략
+         * 메서드이름    : *
+         * 파라미터     : (..)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* *(..))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
+    }
+
+    // String 타입으로 시작하고, 숫자와 무관하게 모든 파라미터, 모든 타입 허용
+    @Test
+    void argsMatchComplex() {
+        /***
+         * 접근제어자?   : 생략
+         * 반환타입     : *
+         * 선언타입?    : 생략
+         * 메서드이름    : *
+         * 파라미터     : (String, ..)
+         * 예외?      : 없음
+         ***/
+        pointcut.setExpression("execution(* *(String, ..))");
         assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
     }
 }
